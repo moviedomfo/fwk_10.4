@@ -36,7 +36,8 @@ namespace Fwk.Security.ActiveDirectory
          /// </summary>
          /// <param name="domainName"></param>
          /// <param name="cnnStringName"></param>
-         /// <param name="performWindowsContextImpersonalization"></param>
+         /// <param name="performWindowsContextImpersonalization">Impersobaliza con windows context impersonation.
+         ///  usando usuario y clave LDAP</param>
          public ADHelper(string domainName, string cnnStringName, bool performWindowsContextImpersonalization)
          {
              Init(domainName, cnnStringName,performWindowsContextImpersonalization);
