@@ -30,7 +30,7 @@ namespace Fwk.Security.Admin
             InitializeComponent();
             try
             {
-                Provider = Membership.Provider;
+                Provider = System.Web.Security.Membership.Provider;
             }
             catch(System.Configuration.Provider.ProviderException ex)
                 {
@@ -93,7 +93,7 @@ namespace Fwk.Security.Admin
             {
 
                 this.Cursor = Cursors.WaitCursor;
-                frmAdmin.Provider = Membership.Providers[cmbProviders.Text];
+                frmAdmin.Provider = System.Web.Security.Membership.Providers[cmbProviders.Text];
                 RoleProvider wRoleProvider =  FwkMembership.GetRoleProvider(cmbProviders.Text);
                 string cnnString = FwkMembership.GetProvider_ConnectionString(frmAdmin.Provider.Name);
                 Fwk.DataBase.CnnString cnn = new DataBase.CnnString("", cnnString);
@@ -166,11 +166,6 @@ namespace Fwk.Security.Admin
                 navBarItem_CategoryCreate.Enabled =
                 navBarItem_Check_Rule.Enabled = navBarItem_CreateRule.Enabled =
                navBarItem_RoleCreate.Enabled = IsSoftwareFactory;
-
-        }
-
-        private void label3_Click(object sender, EventArgs e)
-        {
 
         }
     }

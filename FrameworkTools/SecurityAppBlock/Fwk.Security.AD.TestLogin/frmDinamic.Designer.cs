@@ -57,19 +57,20 @@
             this.label2.TabIndex = 72;
             this.label2.Text = "Domain";
             // 
-            // btnCheck
+            // btnAutenticate
             // 
-            this.btnCheck.BackColor = System.Drawing.Color.White;
-            this.btnCheck.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCheck.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCheck.Location = new System.Drawing.Point(128, 136);
-            this.btnCheck.Name = "btnCheck";
-            this.btnCheck.Size = new System.Drawing.Size(87, 22);
-            this.btnCheck.TabIndex = 70;
-            this.btnCheck.Text = "Ahutenticate";
-            this.btnCheck.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnCheck.UseVisualStyleBackColor = false;
-            this.btnCheck.Click += new System.EventHandler(this.btnCheck_Click);
+            this.btnAutenticate.BackColor = System.Drawing.Color.White;
+            this.btnAutenticate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAutenticate.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnAutenticate.Location = new System.Drawing.Point(54, 167);
+            this.btnAutenticate.Margin = new System.Windows.Forms.Padding(4);
+            this.btnAutenticate.Name = "btnAutenticate";
+            this.btnAutenticate.Size = new System.Drawing.Size(116, 27);
+            this.btnAutenticate.TabIndex = 70;
+            this.btnAutenticate.Text = "Ahutenticate";
+            this.btnAutenticate.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnAutenticate.UseVisualStyleBackColor = false;
+            this.btnAutenticate.Click += new System.EventHandler(this.btnAutenticate_Click);
             // 
             // label1
             // 
@@ -237,7 +238,7 @@
         #endregion
 
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button btnCheck;
+        private System.Windows.Forms.Button btnAutenticate;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TextBox txtLoginName;

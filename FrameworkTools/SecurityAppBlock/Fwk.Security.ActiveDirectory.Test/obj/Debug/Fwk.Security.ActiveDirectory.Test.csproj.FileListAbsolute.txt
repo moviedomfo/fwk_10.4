@@ -1,0 +1,13 @@
+C:\projects\GitHub-sourcetree\fwk_10.4\FrameworkTools\SecurityAppBlock\Fwk.Security.ActiveDirectory.Test\obj\Debug\Fwk.Security.ActiveDirectory.Test.csprojResolveAssemblyReference.cache
+C:\projects\GitHub-sourcetree\fwk_10.4\FrameworkTools\SecurityAppBlock\Fwk.Security.ActiveDirectory.Test\obj\Debug\Fwk.Security.ActiveDirectory.Test.DomainUsers.resources
+C:\projects\GitHub-sourcetree\fwk_10.4\FrameworkTools\SecurityAppBlock\Fwk.Security.ActiveDirectory.Test\obj\Debug\Fwk.Security.ActiveDirectory.Test.frmTest.resources
+C:\projects\GitHub-sourcetree\fwk_10.4\FrameworkTools\SecurityAppBlock\Fwk.Security.ActiveDirectory.Test\obj\Debug\Fwk.Security.ActiveDirectory.Test.frmTestGroups.resources
+C:\projects\GitHub-sourcetree\fwk_10.4\FrameworkTools\SecurityAppBlock\Fwk.Security.ActiveDirectory.Test\obj\Debug\Fwk.Security.ActiveDirectory.Test.frmTestLDAPconnections.resources
+C:\projects\GitHub-sourcetree\fwk_10.4\FrameworkTools\SecurityAppBlock\Fwk.Security.ActiveDirectory.Test\obj\Debug\Fwk.Security.ActiveDirectory.Test.frmTestLogin.resources
+C:\projects\GitHub-sourcetree\fwk_10.4\FrameworkTools\SecurityAppBlock\Fwk.Security.ActiveDirectory.Test\obj\Debug\Fwk.Security.ActiveDirectory.Test.frmUserDetails.resources
+C:\projects\GitHub-sourcetree\fwk_10.4\FrameworkTools\SecurityAppBlock\Fwk.Security.ActiveDirectory.Test\obj\Debug\Fwk.Security.ActiveDirectory.Test.MDIParent1.resources
+C:\projects\GitHub-sourcetree\fwk_10.4\FrameworkTools\SecurityAppBlock\Fwk.Security.ActiveDirectory.Test\obj\Debug\Fwk.Security.ActiveDirectory.Test.Properties.Resources.resources
+C:\projects\GitHub-sourcetree\fwk_10.4\FrameworkTools\SecurityAppBlock\Fwk.Security.ActiveDirectory.Test\obj\Debug\Fwk.Security.ActiveDirectory.Test.DomainGoups.resources
+C:\projects\GitHub-sourcetree\fwk_10.4\FrameworkTools\SecurityAppBlock\Fwk.Security.ActiveDirectory.Test\obj\Debug\Fwk.Security.ActiveDirectory.Test.UserPropertiesUpdate.resources
+C:\projects\GitHub-sourcetree\fwk_10.4\FrameworkTools\SecurityAppBlock\Fwk.Security.ActiveDirectory.Test\obj\Debug\Fwk.Security.ActiveDirectory.Test.csproj.GenerateResource.Cache
+C:\projects\GitHub-sourcetree\fwk_10.4\FrameworkTools\SecurityAppBlock\Fwk.Security.ActiveDirectory.Test\obj\Debug\Fwk.Security.ActiveDirectory.Test.exe.licenses
