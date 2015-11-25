@@ -11,7 +11,7 @@ namespace Fwk.Security
     internal static class StaticsValues
     {
         private static List<DomainUrlInfo> _DomainUrlList;
-        private static Dictionary<string, ADWrapper> _ADHelperDictionary;
+        private static Dictionary<string ,ADWrapper> _ADHelperDictionary ;
         static StaticsValues()
         {
             _ADHelperDictionary = new   Dictionary<string,ADWrapper>();
@@ -46,7 +46,7 @@ namespace Fwk.Security
         }
 
         /// <summary>
-        /// Busca un objeto <see cref="ADHelper"/> si no lo encuentra intenta crearlo e insertarlo al diccionario.-
+        /// Busca un objeto <see cref="ADWrapper"/> si no lo encuentra intenta crearlo e insertarlo al diccionario.-
         /// La creacion del diccionario se hace para no instanciar cientos de veses la clase ADHelper. ya que esta tarea requiere ,mas uso de CPU que el costo de mantener en memoria 
         /// un diccionario con porcos ADHelper. 
         /// En el mundo reali no existiran gran cantidad de clases ADHelper, pero si muchas quisa cientos de ejecuciones del metodos de autenticacio, q son los que 
@@ -60,7 +60,7 @@ namespace Fwk.Security
             if(_ADHelperDictionary.ContainsKey(domainName) == false)
             {
                 DomainUrlInfo di = StaticsValues.Find_DomainUrlInfo(domainName);
-                ADWrapper ad = new Fwk.Security.ActiveDirectory.ADWrapper(di.LDAPPath, di.Usr, di.Pwd);
+                ADWrapper ad = new Fwk.Security.ActiveDirectory.ADWrapper(di.LDAPPath,di.Usr,di.Pwd);
                 _ADHelperDictionary.Add(domainName,ad);
                 return ad;
             }
