@@ -61,7 +61,7 @@ namespace Fwk.Security.ActiveDirectory
         /// <param name="chekControllers"></param>
         public LDAPHelper(String domainName, String connStringName, Boolean pSecure, bool chekControllers)
         {
-
+            
             Init(domainName, connStringName, pSecure, chekControllers);
 
         }
