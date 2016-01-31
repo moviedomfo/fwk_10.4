@@ -295,3 +295,6 @@ Fwk/Fwk.Blocking/Fwk.Blocking.BlockingService/bin/Release/Fwk.Blocking.BlockingS
 Fwk/Fwk.Blocking/Fwk.Blocking.BlockingService/obj/Release/Fwk.Blocking.BlockingService.csprojResolveAssemblyReference.cache
 Fwk/Fwk.Blocking/Fwk.Blocking.BlockingService/obj/Release/Fwk.Blocking.BlockingService.exe
 Fwk/Fwk.Blocking/Fwk.Blocking.BlockingService/obj/Release/Fwk.Blocking.BlockingService.pdb
+*.dll
+*.pdb
+Fwk/
