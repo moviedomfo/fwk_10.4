@@ -9,12 +9,13 @@ using Fwk.Bases.Properties;
 using Fwk.HelperFunctions;
 using Fwk.Configuration;
 using System.Data;
-using Microsoft.Practices.EnterpriseLibrary.Data;
+
 using System.Data.Common;
 using Fwk.ConfigSection;
 using Fwk.Exceptions;
 
 using Fwk.ConfigData;
+using System.Data.SqlClient;
 
 namespace Fwk.Configuration
 {
@@ -47,30 +48,7 @@ namespace Fwk.Configuration
         internal static string GetProperty(string configProvider, string groupName, string propertyName)
         {
             return GetProperty_FromDB(configProvider, groupName, propertyName);
-            //ConfigProviderElement provider = ConfigurationManager.GetProvider(configProvider);
 
-            //ConfigurationFile wConfigurationFile = GetConfig(provider, provider.SourceInfo);
-
-            //Group wGroup = wConfigurationFile.Groups.GetFirstByName(pGroupName);
-            //if (wGroup == null)
-            //{
-
-            //    TechnicalException te = new TechnicalException(string.Concat(new String[] { "No se encuentra el grupo ", pGroupName, " en el archivo de configuración: ", provider.BaseConfigFile }));
-            //    te.ErrorId = "8006";
-            //    Fwk.Exceptions.ExceptionHelper.SetTechnicalException(te, typeof(ConfigurationManager));
-            //    throw te;
-            //}
-            //Key wKey = wGroup.Keys.GetFirstByName(propertyName);
-            //if (wKey == null)
-            //{
-            //    TechnicalException te = new TechnicalException(string.Concat(new String[] { "No se encuentra la propiedad ", propertyName, " en el grupo de propiedades: ", pGroupName, " del archivo de configuración: ", provider.BaseConfigFile }));
-            //    te.ErrorId = "8007";
-            //    Fwk.Exceptions.ExceptionHelper.SetTechnicalException(te, typeof(ConfigurationManager));
-            //    throw te;
-            //}
-
-
-            //return wKey.Value.Text;
 
         }
         /// <summary>
@@ -90,13 +68,13 @@ namespace Fwk.Configuration
                 te.ErrorId = "8200";
                 throw te;
             }
-         
+
             try
             {
                 using (FwkDatacontext dc = new FwkDatacontext(System.Configuration.ConfigurationManager.ConnectionStrings[provider.SourceInfo].ConnectionString))
                 {
                     var val = dc.fwk_ConfigManagers.Where(config =>
-                        config.ConfigurationFileName.ToLower().Equals(provider.BaseConfigFile.ToLower())  &&
+                        config.ConfigurationFileName.ToLower().Equals(provider.BaseConfigFile.ToLower()) &&
                         config.group.ToLower().Equals(groupName.ToLower()) &&
                         config.key.ToLower().Equals(propertyName.ToLower())).FirstOrDefault();
 
@@ -106,10 +84,10 @@ namespace Fwk.Configuration
                         te.ErrorId = "8007";
                         Fwk.Exceptions.ExceptionHelper.SetTechnicalException(te, typeof(ConfigurationManager));
                         throw te;
-                   }
+                    }
                     return val.value;
                 }
-                
+
             }
             catch (Exception ex)
             {
@@ -131,7 +109,7 @@ namespace Fwk.Configuration
         /// <Author>Marcelo Oviedo</Author>
         internal static ConfigurationFile GetConfigurationFile(ConfigProviderElement provider)
         {
-            return GetConfig(provider); 
+            return GetConfig(provider);
         }
 
 
@@ -149,7 +127,7 @@ namespace Fwk.Configuration
             Group wGroup = null;
             try
             {
-                
+
                 using (FwkDatacontext dc = new FwkDatacontext(DatabaseConfigManager.GetCnnString(provider)))
                 {
                     var properties_group = dc.fwk_ConfigManagers.Where(config =>
@@ -164,17 +142,22 @@ namespace Fwk.Configuration
                         Fwk.Exceptions.ExceptionHelper.SetTechnicalException(te, typeof(ConfigurationManager));
                         throw te;
                     }
-                    wGroup = new Group();
-                    wGroup.Keys = new Keys();
-                    Key wKey = new Key();
 
-                    foreach (var item in properties_group)
+                    if (properties_group.Count() != 0)
                     {
-                        wKey = new Key();
-                        wKey.Name = item.key;
-                        wKey.Value.Text = item.value;
-                        wKey.Encrypted = item.encrypted;
-                        wGroup.Keys.Add(wKey);
+                        wGroup = new Group();
+                        wGroup.Name = groupName;
+                        wGroup.Keys = new Keys();
+                        Key wKey = new Key();
+
+                        foreach (var item in properties_group)
+                        {
+                            wKey = new Key();
+                            wKey.Name = item.key;
+                            wKey.Value.Text = item.value;
+                            wKey.Encrypted = item.encrypted;
+                            wGroup.Keys.Add(wKey);
+                        }
                     }
                 }
             }
@@ -186,7 +169,7 @@ namespace Fwk.Configuration
                 throw te;
 
             }
-          
+
 
 
             return wGroup;
@@ -194,13 +177,14 @@ namespace Fwk.Configuration
 
         static string GetCnnString(ConfigProviderElement provider)
         {
-            
+
             if (provider.SourceInfoIsConnectionString)
             {
-                return  provider.SourceInfo;
+                return provider.SourceInfo;
             }
             else
             {
+                
                 if (System.Configuration.ConfigurationManager.ConnectionStrings[provider.SourceInfo] == null)
                 {
                     TechnicalException te = new TechnicalException(string.Concat("Problemas con Fwk.Configuration, no se puede encontrar la cadena de conexión: ", provider.SourceInfo));
@@ -208,9 +192,9 @@ namespace Fwk.Configuration
                     te.ErrorId = "8200";
                     throw te;
                 }
-                return  System.Configuration.ConfigurationManager.ConnectionStrings[provider.SourceInfo].ConnectionString;
+                return System.Configuration.ConfigurationManager.ConnectionStrings[provider.SourceInfo].ConnectionString;
             }
-            
+
         }
         #region [Private members]
 
@@ -254,9 +238,9 @@ namespace Fwk.Configuration
                 {
 
                     IEnumerable<fwk_ConfigManager> fwk_ConfigManagerList = from s in dc.fwk_ConfigManagers
-                                                                             where s.ConfigurationFileName.Equals(pFileName)
+                                                                           where s.ConfigurationFileName.Equals(pFileName)
 
-                                                                             select s;
+                                                                           select s;
 
                     foreach (fwk_ConfigManager fwk_Config in fwk_ConfigManagerList.OrderBy(p => p.group))
                     {
@@ -297,20 +281,20 @@ namespace Fwk.Configuration
         /// <param name="keyName"></param>
         /// <param name="destinationProvider">Provedor destino</param>
         /// <Author>Marcelo Oviedo</Author>
-        static bool ExistProperty(string groupName,string keyName, ConfigProviderElement destinationProvider)
+        static bool ExistProperty(string groupName, string keyName, ConfigProviderElement destinationProvider)
         {
             try
             {
                 using (FwkDatacontext dc = new FwkDatacontext(GetCnnString(destinationProvider)))
                 {
 
-                      var properties = dc.fwk_ConfigManagers.Where(config =>
-                       config.ConfigurationFileName.ToLower().Equals(destinationProvider.BaseConfigFile.ToLower())
-                       &&         config.group.ToLower().Equals(groupName.ToLower())
-                       && config.key.ToLower().Equals(keyName.ToLower())
-                       );
+                    var properties = dc.fwk_ConfigManagers.Where(config =>
+                     config.ConfigurationFileName.ToLower().Equals(destinationProvider.BaseConfigFile.ToLower())
+                     && config.group.ToLower().Equals(groupName.ToLower())
+                     && config.key.ToLower().Equals(keyName.ToLower())
+                     );
 
-                      return properties.Any();
+                    return properties.Any();
                 }
             }
             catch (Exception ex)
@@ -321,7 +305,7 @@ namespace Fwk.Configuration
                 throw te;
             }
 
-            
+
         }
 
         #endregion
@@ -335,10 +319,10 @@ namespace Fwk.Configuration
         /// <param name="groupName">Nombre del gruop que contiene las propiedades</param>
         internal static void AddProperty(ConfigProviderElement provider, Key key, string groupName)
         {
-            
+
             System.Text.StringBuilder sqlCommand = new StringBuilder();
 
-            ConfigurationFile wConfigurationFile = GetConfig(provider); 
+            ConfigurationFile wConfigurationFile = GetConfig(provider);
             Group wGroup = wConfigurationFile.Groups.GetFirstByName(groupName);
 
             //Si grupo no existe en un provider p/bd es por que seguramente se agrego el grupo por la aplicacion del fwk y ahun este grupo se encuentra vasio.
@@ -347,7 +331,7 @@ namespace Fwk.Configuration
             {
                 wGroup = new Group();
                 wGroup.Keys = new Keys();
-                wGroup.Name=groupName;
+                wGroup.Name = groupName;
                 AddGroup(provider, wGroup);
             }
             wGroup.Keys.Add(key);
@@ -391,7 +375,7 @@ namespace Fwk.Configuration
         /// <param name="group">Grupo</param>
         internal static void AddGroup(ConfigProviderElement provider, Group group)
         {
-            
+
             ConfigurationFile wConfigurationFile = GetConfig(provider);
 
 
@@ -487,26 +471,36 @@ namespace Fwk.Configuration
                 throw te;
             }
 
-            Database wDataBase = null;
-            DbCommand wCmd = null;
+            string cnnString = System.Configuration.ConfigurationManager.ConnectionStrings[cnnStringName].ConnectionString;
+
+           
+            //Database wDataBase = null;
+            //DbCommand wCmd = null;
             try
             {
-                wDataBase = DatabaseFactory.CreateDatabase(cnnStringName);
+                using (SqlConnection cnn = new SqlConnection(cnnString))
+                using (SqlCommand cmd = new SqlCommand(sqlCommand, cnn))
+                {
+                    cmd.CommandType = CommandType.Text;
+                    cnn.Open();
+                    cmd.ExecuteNonQuery();
+                }
+                //wDataBase = DatabaseFactory.CreateDatabase(cnnStringName);
 
 
-                wCmd = wDataBase.GetSqlStringCommand(sqlCommand);
-                wCmd.CommandType = CommandType.Text;
+                //wCmd = wDataBase.GetSqlStringCommand(sqlCommand);
+                //wCmd.CommandType = CommandType.Text;
 
-                wDataBase.ExecuteNonQuery(wCmd);
+                //wDataBase.ExecuteNonQuery(wCmd);
             }
             catch (Exception ex)
             {
-                TechnicalException te = new TechnicalException("Problemas con Fwk.Configuration al realizar operaciones con la base de datos \r\n", ex);
+                TechnicalException te = new TechnicalException("Error en Fwk.Configuration al realizar operaciones con la base de datos \r\n", ex);
                 ExceptionHelper.SetTechnicalException<DatabaseConfigManager>(te);
                 te.ErrorId = "8200";
                 throw te;
             }
-
+           
         }
 
         /// <summary>
@@ -612,13 +606,13 @@ namespace Fwk.Configuration
                 {
                     if (ExistProperty(wGrp.Name, wKey.Name, provider))
                     {
-                        ChangeProperty(provider,wGrp.Name,wKey,wKey.Name);
+                        ChangeProperty(provider, wGrp.Name, wKey, wKey.Name);
                     }
                     else
                     {
-                    AddProperty(provider, wKey, wGrp.Name);
+                        AddProperty(provider, wKey, wGrp.Name);
                     }
-                    
+
                 }
             }
         }

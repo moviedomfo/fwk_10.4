@@ -124,7 +124,7 @@ namespace Fwk.BusinessFacades
             IServiceContract wRequest = (IServiceContract)ReflectionFunctions.CreateInstance(wServiceConfiguration.Request);
             if (wRequest == null)
             {
-                TechnicalException te = new TechnicalException(string.Concat("El despachador de servicio no pudo continuar debido\r\na que no construir el requets del servicio: ",
+                TechnicalException te = new TechnicalException(string.Concat("El despachador de servicio no pudo continuar debido\r\na que no logro construir el requets del servicio: ",
                     serviceName, "\r\nVerifique que se encuentre los componentes necesarios para su ejecucion esten en el servidor de aplicación. "));
 
                 Fwk.Exceptions.ExceptionHelper.SetTechnicalException<SimpleFacade>(te);
@@ -160,10 +160,10 @@ namespace Fwk.BusinessFacades
             string wResult;
 
             ServiceConfiguration wServiceConfiguration = FacadeHelper.GetServiceConfiguration(providerName, serviceName);
-            Type reqType = Type.GetType(wServiceConfiguration.Request);
+            Type reqType = ReflectionFunctions.CreateType(wServiceConfiguration.Request);
             if (reqType == null)
             {
-                TechnicalException te = new TechnicalException(string.Concat("El despachador de servicio no pudo continuar debido\r\na que no construir el requets del servicio: ",
+                TechnicalException te = new TechnicalException(string.Concat("El despachador de servicio no pudo continuar debido\r\na que no logro construir el requets del servicio: ",
                     serviceName, "\r\nVerifique que se encuentre los componentes necesarios para su ejecucion esten en el servidor de aplicación. "));
 
                 Fwk.Exceptions.ExceptionHelper.SetTechnicalException<SimpleFacade>(te);
@@ -186,6 +186,36 @@ namespace Fwk.BusinessFacades
             return wResult;
         }
 
+        //public string ExecuteServiceXml(string providerName, string serviceName, string xmlRequest, HostContext hostContext)
+        //{
+        //    string xmlResult;
+
+        //    ServiceConfiguration wServiceConfiguration = FacadeHelper.GetServiceConfiguration(providerName, serviceName);
+        //    Type reqType = ReflectionFunctions.CreateType(wServiceConfiguration.Request);
+        //    if (reqType == null)
+        //    {
+        //        TechnicalException te = new TechnicalException(string.Concat("El despachador de servicio no pudo continuar debido\r\na que no logro construir el requets del servicio: ",
+        //            serviceName, "\r\nVerifique que se encuentre los componentes necesarios para su ejecucion esten en el servidor de aplicación. "));
+
+        //        Fwk.Exceptions.ExceptionHelper.SetTechnicalException<SimpleFacade>(te);
+        //        if (string.IsNullOrEmpty(ConfigurationsHelper.HostApplicationName))
+        //            te.Source = "Despachador de servicios en " + Environment.MachineName;
+        //        else
+        //            te.Source = ConfigurationsHelper.HostApplicationName;
+
+        //        te.ErrorId = "7003";
+        //        throw te;
+        //    }
+
+        //    var wRequest = (IServiceContract)Fwk.HelperFunctions.SerializationFunctions.DeserializeFromXml(reqType, xmlRequest);
+        //    wRequest.ContextInformation.HostName = hostContext.HostName;
+        //    wRequest.ContextInformation.HostIp = hostContext.HostIp;
+
+        //    IServiceContract res = ExecuteService(providerName, (IServiceContract)wRequest);
+        //    //Type resType = Type.GetType(wServiceConfiguration.Response);
+        //    xmlResult = Fwk.HelperFunctions.SerializationFunctions.SerializeToXml(res);
+        //    return xmlResult;
+        //}
 
 
 	    #endregion
@@ -368,6 +398,7 @@ namespace Fwk.BusinessFacades
         /// <returns></returns>
         public DispatcherInfo RetriveDispatcherInfo()
         {
+           
             return FacadeHelper.RetriveDispatcherInfo();
         }
         
@@ -490,7 +521,7 @@ namespace Fwk.BusinessFacades
             IServiceContract wRequest = (IServiceContract)ReflectionFunctions.CreateInstance(wServiceConfiguration.Request);
             if (wRequest == null)
             {
-                TechnicalException te = new TechnicalException(string.Concat("El despachador de servicio no pudo continuar debido\r\na que no construir el requets del servicio: ",
+                TechnicalException te = new TechnicalException(string.Concat("El despachador de servicio no pudo continuar debido\r\na que no logro construir el requets del servicio: ",
                     serviceName, "\r\nVerifique que se encuentre los componentes necesarios para su ejecucion esten en el servidor de aplicación. "));
 
                 Fwk.Exceptions.ExceptionHelper.SetTechnicalException<StaticFacade>(te);
@@ -527,10 +558,11 @@ namespace Fwk.BusinessFacades
             string wResult;
 
             ServiceConfiguration wServiceConfiguration = FacadeHelper.GetServiceConfiguration(providerName, serviceName);
-            Type reqType = Type.GetType(wServiceConfiguration.Request);
+            
+            Type reqType = ReflectionFunctions.CreateType(wServiceConfiguration.Request);
             if (reqType == null)
             {
-                TechnicalException te = new TechnicalException(string.Concat("El despachador de servicio no pudo continuar debido\r\na que no construir el requets del servicio: ",
+                TechnicalException te = new TechnicalException(string.Concat("El despachador de servicio no pudo continuar debido\r\na que no logro construir el requets del servicio: ",
                     serviceName, "\r\nVerifique que se encuentre los componentes necesarios para su ejecucion esten en el servidor de aplicación. "));
 
                 Fwk.Exceptions.ExceptionHelper.SetTechnicalException<StaticFacade>(te);

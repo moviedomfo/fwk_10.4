@@ -240,10 +240,14 @@ namespace Fwk.HelperFunctions
         /// <returns></returns>
         public static string SerializeObjectToJson<T>(object obj)
         {
+            //var json = new JavaScriptSerializer().Serialize(obj);
+
+            //return json;
+
             MemoryStream stream1 = new MemoryStream();
             System.Runtime.Serialization.Json.DataContractJsonSerializer ser = new System.Runtime.Serialization.Json.DataContractJsonSerializer(typeof(T));
             ser.WriteObject(stream1, obj);
-            
+
             stream1.Position = 0;
             StreamReader sr = new StreamReader(stream1);
             return sr.ReadToEnd();
@@ -257,6 +261,11 @@ namespace Fwk.HelperFunctions
         /// <returns></returns>
         public static string SerializeObjectToJson(Type objType, object obj)
         {
+
+            //var json = new JavaScriptSerializer().Serialize(obj);
+
+            //return json;
+
             MemoryStream stream1 = new MemoryStream();
             System.Runtime.Serialization.Json.DataContractJsonSerializer ser = new System.Runtime.Serialization.Json.DataContractJsonSerializer(objType);
             ser.WriteObject(stream1, obj);
@@ -269,11 +278,13 @@ namespace Fwk.HelperFunctions
         /// <summary>
         /// deserialize an instance of type T from JSON
         /// </summary>
-        /// <param name="t"></param>
-        /// <param name="jsonString"></param>
         /// <returns></returns>
         public static T DeSerializeObjectFromJson<T>(string json)
         {
+            //var obj = Newtonsoft.Json.JsonConvert.DeserializeObject<T>(json);
+
+            ////var obj = new JavaScriptSerializer().Deserialize(json, typeof(T));
+            //return (T)obj;
             //var instance = Activator.CreateInstance<T>();
             using (var ms = new MemoryStream(Encoding.Unicode.GetBytes(json)))
             {
@@ -291,6 +302,10 @@ namespace Fwk.HelperFunctions
         /// <returns></returns>
         public static object DeSerializeObjectFromJson(Type objType, string json)
         {
+
+            //var obj = Newtonsoft.Json.JsonConvert.DeserializeObject(json ,objType.GetType());
+            ////var obj = new JavaScriptSerializer().Deserialize(json, objType);
+            //return obj;
             using (var ms = new MemoryStream(Encoding.Unicode.GetBytes(json)))
             {
                 var serializer = new System.Runtime.Serialization.Json.DataContractJsonSerializer(objType);

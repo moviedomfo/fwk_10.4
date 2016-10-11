@@ -5,6 +5,7 @@ using Fwk.Bases;
 using Fwk.BusinessFacades;
 using Fwk.Exceptions;
 using Fwk.ConfigSection;
+using Fwk.Bases.ISVC;
 
 namespace Fwk.Bases.Connector
 {
@@ -251,9 +252,24 @@ namespace Fwk.Bases.Connector
         /// Chequea la disponibilidad del despachador de servicio
         /// </summary>
         /// <returns>Mensaje en caso de que el servicio no esté disponible</returns>
-        public string CheckServiceAvailability()
+        /// <summary>
+        /// Chequea si un Dispatcher esta activo
+        /// </summary>
+        /// <returns></returns>
+        public DispatcherInfoBE CheckServiceAvailability(bool includeCnnstSrings = false, bool includeAppSettings = false, bool includeMetadata = false)
         {
-            return _SimpleFacade.CheckServiceAvailability();
+            RetriveDispatcherInfoReq req = new RetriveDispatcherInfoReq();
+            req.BusinessData.IncludeAppSettings = includeAppSettings;
+            req.BusinessData.IncludeCnnstSrings = includeCnnstSrings;
+            req.BusinessData.IncludeMetadata = includeMetadata;
+            var res = this.ExecuteService<RetriveDispatcherInfoReq, RetriveDispatcherInfoRes>(req);
+            if (res.Error != null)
+            {
+                throw Fwk.Exceptions.ExceptionHelper.ProcessException(res.Error);
+
+            }
+
+            return res.BusinessData;
         }
 
         #endregion
@@ -263,7 +279,8 @@ namespace Fwk.Bases.Connector
 
         public Fwk.ConfigSection.DispatcherInfo RetriveDispatcherInfo()
         {
-           
+            if (_SimpleFacade == null)
+                _SimpleFacade = CreateSimpleFacade();
             return _SimpleFacade.RetriveDispatcherInfo();
         }
 
