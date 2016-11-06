@@ -66,6 +66,12 @@
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.Practices.EnterpriseLibrary.Common">
+      <HintPath>..\..\..\Libraries\Microsoft.Practices.EnterpriseLibrary.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.EnterpriseLibrary.Data">
+      <HintPath>..\..\..\Libraries\Microsoft.Practices.EnterpriseLibrary.Data.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.configuration" />
@@ -96,10 +102,6 @@
     <ProjectReference Include="..\..\Fwk.Bases\Fwk.Bases.csproj">
       <Project>{1654a893-0408-474e-873c-e79f00d7587c}</Project>
       <Name>Fwk.Bases</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\Fwk.DataBase\Fwk.DataBase.csproj">
-      <Project>{87C826E0-D87A-4C89-94ED-3B1044746A34}</Project>
-      <Name>Fwk.DataBase</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\Fwk.Security\Fwk.Security.csproj">
       <Project>{adba9438-d15d-4f34-aa76-05cd0a193fde}</Project>

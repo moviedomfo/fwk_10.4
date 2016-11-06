@@ -157,7 +157,9 @@ namespace Fwk.CentralizedSecurity.Service
         {
             ADWrapper ad = new ADWrapper(domain, ActiveDirectoryService.CnnStringName, performCustomWindowsContextImpersonalization);
 
-            ADUser usr = ad.User_Get_ByName(userName);
+          ADUser usr = ad.User_Get_ByName(userName);
+
+           
             if (usr != null)
                 return null;
             return new ActiveDirectoryUser(usr);
@@ -173,7 +175,19 @@ namespace Fwk.CentralizedSecurity.Service
 
         internal static void User_Reset_Password(string userName, string newPassword, string domain)
         {
-            ADWrapper ad = new ADWrapper(domain, ActiveDirectoryService.CnnStringName, performCustomWindowsContextImpersonalization);
+            //ADWrapper ad3 = new ADWrapper(domain, ActiveDirectoryService.CnnStringName, performCustomWindowsContextImpersonalization);
+
+            //ADWrapper ad = new ADWrapper("LDAP://allus.ar/DC=allus,DC=ar", "LDAP_Reseteo_WSReset", "R3s3t30s++");
+            domain = "LDAP://allus.ar/DC=allus,DC=ar";
+            domain = "LDAP://alcomovistar.com.ar/DC=alcomovistar,DC=com,DC=ar";
+            //ADWrapper ad3 = new ADWrapper("LDAP://alcomovistar.com.ar/DC=alcomovistar,DC=com,DC=ar", "LDAP_Reseteo_WSReset", "R3s3t30s++");
+
+            ImpersonateLogin impersonateLogin = new ImpersonateLogin();
+            impersonateLogin.ldap = "LDAP://allus.ar/DC=allus,DC=ar";
+            impersonateLogin.user = "reseteos";
+            impersonateLogin.password = "*R3s3t30s+";
+            impersonateLogin.domain = "allus-ar";
+            ADWrapper ad = new ADWrapper(impersonateLogin.domain, impersonateLogin);
 
             ad.User_ResetPwd(userName, newPassword, true);
 
