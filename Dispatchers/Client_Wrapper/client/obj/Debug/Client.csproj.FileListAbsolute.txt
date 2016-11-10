@@ -1,0 +1,17 @@
+c:\projects\GitHub-sourcetree\fwk_12\Dispatchers\Client_Wrapper\client\bin\Debug\Client.exe.config
+c:\projects\GitHub-sourcetree\fwk_12\Dispatchers\Client_Wrapper\client\bin\Debug\Client.exe
+c:\projects\GitHub-sourcetree\fwk_12\Dispatchers\Client_Wrapper\client\bin\Debug\Client.pdb
+c:\projects\GitHub-sourcetree\fwk_12\Dispatchers\Client_Wrapper\client\bin\Debug\Fwk.Bases.Connector.dll
+c:\projects\GitHub-sourcetree\fwk_12\Dispatchers\Client_Wrapper\client\bin\Debug\Fwk.Bases.dll
+c:\projects\GitHub-sourcetree\fwk_12\Dispatchers\Client_Wrapper\client\bin\Debug\Newtonsoft.Json.dll
+c:\projects\GitHub-sourcetree\fwk_12\Dispatchers\Client_Wrapper\client\bin\Debug\Fwk.Bases.xml
+c:\projects\GitHub-sourcetree\fwk_12\Dispatchers\Client_Wrapper\client\bin\Debug\Fwk.Bases.Connector.xml
+c:\projects\GitHub-sourcetree\fwk_12\Dispatchers\Client_Wrapper\client\bin\Debug\Fwk.Bases.Connector.XmlSerializers.dll
+c:\projects\GitHub-sourcetree\fwk_12\Dispatchers\Client_Wrapper\client\obj\Debug\Client.csprojResolveAssemblyReference.cache
+c:\projects\GitHub-sourcetree\fwk_12\Dispatchers\Client_Wrapper\client\obj\Debug\Client.Form1.resources
+c:\projects\GitHub-sourcetree\fwk_12\Dispatchers\Client_Wrapper\client\obj\Debug\Client.Properties.Resources.resources
+c:\projects\GitHub-sourcetree\fwk_12\Dispatchers\Client_Wrapper\client\obj\Debug\Client.csproj.GenerateResource.Cache
+c:\projects\GitHub-sourcetree\fwk_12\Dispatchers\Client_Wrapper\client\obj\Debug\Client.exe
+c:\projects\GitHub-sourcetree\fwk_12\Dispatchers\Client_Wrapper\client\obj\Debug\Client.pdb
+C:\projects\GitHub-sourcetree\fwk_12\Dispatchers\Client_Wrapper\client\bin\Debug\Health.Back.dll
+C:\projects\GitHub-sourcetree\fwk_12\Dispatchers\Client_Wrapper\client\bin\Debug\Health.Back.pdb

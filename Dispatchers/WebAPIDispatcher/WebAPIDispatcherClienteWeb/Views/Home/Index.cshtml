@@ -1,0 +1,48 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+<script type="text/javascript">
+   
+</script>
+
+<div class="row">
+    <div class="col-md-4">
+        <h2>Getting started</h2>
+        @*<p>
+          
+        </p>
+        <p><div id="btnAjaxCall" class="btn btn-default">POST to web site </div></p>*@
+
+        <p>
+            JSONP contra Web API Dispatcher fwk
+            Llamada server mediante ajax jsonp post contra  web api jsonp
+        </p>
+        <p><div id="btnAjaxCall_POST_jsonp_WebAPI" class="btn btn-default">POST</div></p>
+    </div>
+    
+</div>
+<div class="row">
+
+    <div class="col-md-4">
+
+        <p>
+            POST to Execute tyhis site  directly
+        </p>
+        <p><div id="btnCallService_thisSite_POST_WebAPI" class="btn btn-danger">POST </div></p>
+
+
+    </div>
+    <div class="col-md-4">
+        <p>
+            Llamada a una web service  json p
+        </p>
+        <p><div id="btnCallService_WS_Cruzado" class="btn btn-info">Call WS</div></p>
+
+    </div>
+</div>
+
+    @section Scripts {
+
+        <script src="@Url.Content("~/Scripts/index.js")" type="text/javascript"></script>
+
+    }

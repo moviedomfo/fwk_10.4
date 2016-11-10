@@ -1,0 +1,6 @@
+c:\projects\GitHub-sourcetree\fwk_12\Dispatchers\Client_Wrapper\back\bin\Debug\Fwk.Bases.dll
+c:\projects\GitHub-sourcetree\fwk_12\Dispatchers\Client_Wrapper\back\bin\Debug\Fwk.Bases.xml
+C:\projects\GitHub-sourcetree\fwk_12\Dispatchers\Client_Wrapper\back\bin\Debug\Health.Back.dll
+C:\projects\GitHub-sourcetree\fwk_12\Dispatchers\Client_Wrapper\back\bin\Debug\Health.Back.pdb
+C:\projects\GitHub-sourcetree\fwk_12\Dispatchers\Client_Wrapper\back\obj\Debug\Health.Back.dll
+C:\projects\GitHub-sourcetree\fwk_12\Dispatchers\Client_Wrapper\back\obj\Debug\Health.Back.pdb
