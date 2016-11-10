@@ -124,11 +124,12 @@ namespace ConfigurationApp.Forms
                 frmNewKey f = new frmNewKey();
                 f.GroupName = treeView1.SelectedNode.Text;
                 f.FileName = treeView1.SelectedNode.Parent.Text;
+                
                 f.ShowDialog();
 
                 if (f.KeyName.Length != 0)
                 {
-                    ConfigManagerControl.AddKey(treeView1.SelectedNode.Parent, treeView1.SelectedNode, f.KeyName, f.KeyValue, mnGroupAndKey);
+                    ConfigManagerControl.AddKey(treeView1.SelectedNode.Parent, treeView1.SelectedNode, f.KeyName, f.KeyValue,f.Crypted, mnGroupAndKey);
                 }
             }
         }
@@ -223,6 +224,7 @@ namespace ConfigurationApp.Forms
 
                         if (!currentK.Name.Equals(updatedK.Name, StringComparison.OrdinalIgnoreCase)
                             || !currentK.Value.Text.Equals(updatedK.Value.Text, StringComparison.OrdinalIgnoreCase)
+                            || currentK.Encrypted != updatedK.Encrypted
                             )
                         {
                             ConfigManagerControl.ChangeKey(ptreeNode, updatedK);
@@ -459,6 +461,28 @@ namespace ConfigurationApp.Forms
                         RefreshAllFiles();
                 }
 
+        }
+
+        private void exportToToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (_CnfgManagerSelectedNodeType == CnfgManagerSelectedNodeType.File)
+            {
+               
+                TreeNode wTreeNodeFile = GetTreeNodeFile();
+                frmExport1 f = new frmExport1((System.Collections.Specialized.ListDictionary)wTreeNodeFile.Tag);
+                f.ShowDialog();
+            }
+        }
+
+        private void viewInsertScriptsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (_CnfgManagerSelectedNodeType == CnfgManagerSelectedNodeType.File)
+            {
+
+                TreeNode wTreeNodeFile = GetTreeNodeFile();
+                ConfigurationApp.Export.frmViewInsertScript f = new ConfigurationApp.Export.frmViewInsertScript((System.Collections.Specialized.ListDictionary)wTreeNodeFile.Tag);
+                f.ShowDialog();
+            }
         }
 
 
