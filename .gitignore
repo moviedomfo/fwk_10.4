@@ -726,3 +726,6 @@ Dispatchers/WebAPIDispatcher/packages/WebGrease.1.5.2/tools/install.ps1
 Dispatchers/WebAPIDispatcher/packages/WebGrease.1.5.2/tools/uninstall.ps1
 Dispatchers/WebAPIDispatcher/packages/bootstrap.3.0.0/Content/Content/bootstrap-theme.css
 Dispatchers/WebAPIDispatcher/libs/Fwk.Bases.XML
+Dispatchers/WcfDispatcher/Cliente/WCFWrapper_01.cs.bak
+Dispatchers/WcfDispatcher/Cliente/WCFWrapper_02.cs.bak
+Dispatchers/WcfDispatcher/WcfDispatcher/FwkDataContract.cs.bak
