@@ -8,26 +8,31 @@ using Fwk.Bases;
 using System.Collections.Generic;
 using Fwk.ConfigSection;
 using Fwk.BusinessFacades.Utils;
+using System.Web.Script.Services;
+using Fwk.Bases.Blocks.Fwk.BusinessFacades;
 
 
 
-
+namespace Allus.WebServiceDispatcher
+{
     /// <summary>
     /// Summary description for WebService1
     /// </summary>
     [WebService(Namespace = "http://tempuri.org/")]
     [WebServiceBinding(ConformsTo = WsiProfiles.BasicProfile1_1)]
-    [System.ComponentModel.ToolboxItem(false)]
     // To allow this Web Service to be called from script, using ASP.NET AJAX, uncomment the following line. 
-    // [System.Web.Script.Services.ScriptService]
+    [System.Web.Script.Services.ScriptService]
     public class SingleService : System.Web.Services.WebService
     {
+        HostContext hostContext = null;
         SimpleFacade _SimpleFacade;
         public SingleService()
         {
             ConfigurationsHelper.HostApplicationName = "Fwk web service";
             //Uncomment the following line if using designed components 
             //InitializeComponent(); 
+
+            String msg_log = String.Format("El servicio {0} se ah detenido ", ConfigurationsHelper.HostApplicationName);
         }
 
         /// <summary>
@@ -44,6 +49,32 @@ using Fwk.BusinessFacades.Utils;
             SimpleFacade wSimpleFacade = CreateSimpleFacade();
             string wResult = wSimpleFacade.ExecuteService(providerName, pServiceName, pData);
             return wResult;
+        }
+        [WebMethod]
+        //https://forums.asp.net/t/1934215.aspx?Using+jQuery+ajax+to+call+asmx+webservice+methods
+        [ScriptMethod(UseHttpGet = true, ResponseFormat = ResponseFormat.Json)]
+        public string Ejecutar(string providerName, string serviceName, string jsonRequets)
+        {
+            #region solo para test simple
+            //var data = new { Id = "1233", Name = "pepe"  };
+            //System.Web.Script.Serialization.JavaScriptSerializer js = new System.Web.Script.Serialization.JavaScriptSerializer();
+
+            //return js.Serialize(data);
+
+            #endregion
+
+            SimpleFacade wSimpleFacade = CreateSimpleFacade();
+            try
+            {
+                string res = wSimpleFacade.ExecuteServiceJson_newtonjs(providerName, serviceName, jsonRequets, CreateHostContext());
+                
+                return res; //el res ya viene serializado enum json
+            }
+            catch (Exception ex) 
+            {
+                throw ex;
+            }
+           
         }
         /// <summary>
         /// 
@@ -160,14 +191,14 @@ using Fwk.BusinessFacades.Utils;
             return wSimpleFacade.GetProviderInfo(providerName);
 
         }
-		  /// <summary>
+        /// <summary>
         /// 
         /// </summary>
         /// <returns></returns>
         [WebMethod]
         public List<MetadataProvider> RetriveProviders()
         {
-           
+
             return FacadeHelper.RetriveDispatcherInfo().MetadataProviders;
 
         }
@@ -192,5 +223,18 @@ using Fwk.BusinessFacades.Utils;
 
             return _SimpleFacade;
         }
+
+        HostContext CreateHostContext()
+        {
+            if (hostContext == null)
+            {
+                hostContext = new HostContext();
+
+                hostContext.HostName = Environment.MachineName;
+                hostContext.HostIp = Fwk.HelperFunctions.EnvironmentFunctions.GetMachineIp();
+            }
+            return  hostContext;
+        }
     }
 
+}
