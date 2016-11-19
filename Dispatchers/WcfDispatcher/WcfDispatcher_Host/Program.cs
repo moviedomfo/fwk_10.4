@@ -41,15 +41,6 @@ namespace WcfDispatcher_Host
             host.AddServiceEndpoint(typeof(IFwkService), tcpBinding, wUri);
             
             host.Open();
-
-
-            NetTcpBinding tcpBinding1 = new NetTcpBinding();
-             Uri wUri1 = new Uri("net.tcp://localhost:8002/FwkFileTransferService");
-            tcpBinding.TransactionFlow = true;
-
-            host.AddServiceEndpoint(typeof(IFileTransfer), tcpBinding1, wUri1);
-
-            host.Open();
         }
 
     }
