@@ -1,3 +1,7 @@
+node_modules/
+packages/
+bin/
+obj/
 Fwk/Test/Fwk.DataBase.Test/bin/Debug/Fwk.DataBase.Test.exe.config
 Fwk/Test/Fwk.DataBase.Test/bin/Debug/Fwk.DataBase.xml
 Fwk/Test/Fwk.DataBase.Test/bin/Debug/ServiceMetadataConfig.xml

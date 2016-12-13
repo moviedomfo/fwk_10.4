@@ -13,7 +13,10 @@ namespace WebAPIDispatcherClienteWeb.Controllers
         {
             return View();
         }
-
+        public ActionResult apiclient()
+        {
+            return View();
+        }
         //[HttpPost]
         //public JsonResult RegistrarLlamada(WebAPIDispatcherBE param)
         //{
