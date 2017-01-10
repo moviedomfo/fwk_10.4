@@ -17,10 +17,7 @@ namespace Fwk.Bases
     /// <author>moviedo</author>
 	public interface IServiceWrapper
 	{
-        /// <summary>
-        /// Determina el tipo de wrapper ()
-        /// </summary>
-        //string WrapperProviderType { get; set; }
+       
         /// <summary>
         /// Proveedor del wrapper. Este valor debe coincidir con un proveedor de metadata en el dispatcher
         /// </summary>

@@ -7,10 +7,31 @@ using Health.Isvc.RetrivePatients;
 using Health.Back;
 
 using Health.BE;
+using Health.ISVC;
 
 
 namespace Health.Svc
 {
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     /// <summary>
     /// 
     /// </summary>
