@@ -793,3 +793,9 @@ Dispatchers/WebServiceDispatcher/obj/Debug/WebServiceDispatcher.csproj.FileListA
 Dispatchers/WebServiceDispatcher/obj/Debug/WebServiceDispatcher.csprojResolveAssemblyReference.cache
 Dispatchers/WebServiceDispatcher/WebServiceDispatcher.csproj.user
 Dispatchers/WebServiceDispatcher/WebServiceDispatcher.v11.suo
+Dispatchers/Client_Wrapper/client.v12.suo
+Dispatchers/Client_Wrapper/client/Client.csproj.user
+Dispatchers/Client_Wrapper/client/settings.cs
+Dispatchers/RemotingDispatcher/Remoting.Host/Remoting.Host.csproj.user
+Dispatchers/RemotingDispatcher/RemotingDispatcher.v11.suo
+Dispatchers/WebAPIDispatcherClienteWeb/.vs/WebAPIDispatcherClienteWeb/v14/.suo
