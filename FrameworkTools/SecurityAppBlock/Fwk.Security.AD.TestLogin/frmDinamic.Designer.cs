@@ -31,7 +31,7 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmDinamic));
             this.label2 = new System.Windows.Forms.Label();
-            this.btnCheck = new System.Windows.Forms.Button();
+            this.btnAutenticate = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.txtLoginName = new System.Windows.Forms.TextBox();
@@ -45,6 +45,7 @@
             this.UnLock = new System.Windows.Forms.CheckBox();
             this.ForceChange = new System.Windows.Forms.CheckBox();
             this.txtError = new System.Windows.Forms.TextBox();
+            this.btnRetriveDomains = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.domainUrlInfoBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
@@ -62,10 +63,9 @@
             this.btnAutenticate.BackColor = System.Drawing.Color.White;
             this.btnAutenticate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAutenticate.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAutenticate.Location = new System.Drawing.Point(54, 167);
-            this.btnAutenticate.Margin = new System.Windows.Forms.Padding(4);
+            this.btnAutenticate.Location = new System.Drawing.Point(40, 136);
             this.btnAutenticate.Name = "btnAutenticate";
-            this.btnAutenticate.Size = new System.Drawing.Size(116, 27);
+            this.btnAutenticate.Size = new System.Drawing.Size(87, 22);
             this.btnAutenticate.TabIndex = 70;
             this.btnAutenticate.Text = "Ahutenticate";
             this.btnAutenticate.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -110,21 +110,22 @@
             this.lblURL.BackColor = System.Drawing.Color.White;
             this.lblURL.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)), true);
             this.lblURL.ForeColor = System.Drawing.Color.SteelBlue;
-            this.lblURL.Location = new System.Drawing.Point(9, 245);
+            this.lblURL.Location = new System.Drawing.Point(12, 170);
             this.lblURL.Name = "lblURL";
-            this.lblURL.Size = new System.Drawing.Size(485, 24);
+            this.lblURL.Size = new System.Drawing.Size(585, 24);
             this.lblURL.TabIndex = 73;
             // 
             // cmbDomains
             // 
+            this.cmbDomains.BackColor = System.Drawing.SystemColors.InactiveCaption;
             this.cmbDomains.DataSource = this.domainUrlInfoBindingSource;
             this.cmbDomains.DisplayMember = "DomainName";
-            this.cmbDomains.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cmbDomains.FormattingEnabled = true;
-            this.cmbDomains.Location = new System.Drawing.Point(130, 109);
+            this.cmbDomains.Location = new System.Drawing.Point(128, 106);
             this.cmbDomains.Name = "cmbDomains";
             this.cmbDomains.Size = new System.Drawing.Size(175, 21);
             this.cmbDomains.TabIndex = 74;
+            this.cmbDomains.SelectedIndexChanged += new System.EventHandler(this.cmbDomains_SelectedIndexChanged);
             // 
             // domainUrlInfoBindingSource
             // 
@@ -134,11 +135,11 @@
             // 
             this.lblCheckResult.BackColor = System.Drawing.Color.White;
             this.lblCheckResult.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCheckResult.Location = new System.Drawing.Point(12, 164);
+            this.lblCheckResult.Location = new System.Drawing.Point(12, 199);
             this.lblCheckResult.Multiline = true;
             this.lblCheckResult.Name = "lblCheckResult";
             this.lblCheckResult.ReadOnly = true;
-            this.lblCheckResult.Size = new System.Drawing.Size(482, 105);
+            this.lblCheckResult.Size = new System.Drawing.Size(485, 101);
             this.lblCheckResult.TabIndex = 75;
             // 
             // ResetPwd
@@ -202,12 +203,27 @@
             this.txtError.Size = new System.Drawing.Size(482, 105);
             this.txtError.TabIndex = 80;
             // 
+            // btnRetriveDomains
+            // 
+            this.btnRetriveDomains.BackColor = System.Drawing.Color.White;
+            this.btnRetriveDomains.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRetriveDomains.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnRetriveDomains.Location = new System.Drawing.Point(430, 25);
+            this.btnRetriveDomains.Name = "btnRetriveDomains";
+            this.btnRetriveDomains.Size = new System.Drawing.Size(156, 22);
+            this.btnRetriveDomains.TabIndex = 81;
+            this.btnRetriveDomains.Text = "Retrive domains from database";
+            this.btnRetriveDomains.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnRetriveDomains.UseVisualStyleBackColor = false;
+            this.btnRetriveDomains.Click += new System.EventHandler(this.btnRetriveDomains_Click);
+            // 
             // frmDinamic
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(598, 498);
+            this.Controls.Add(this.btnRetriveDomains);
             this.Controls.Add(this.txtError);
             this.Controls.Add(this.ForceChange);
             this.Controls.Add(this.UnLock);
@@ -217,7 +233,7 @@
             this.Controls.Add(this.cmbDomains);
             this.Controls.Add(this.lblURL);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.btnCheck);
+            this.Controls.Add(this.btnAutenticate);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.txtLoginName);
@@ -252,6 +268,7 @@
         private System.Windows.Forms.CheckBox UnLock;
         private System.Windows.Forms.CheckBox ForceChange;
         private System.Windows.Forms.TextBox txtError;
+        private System.Windows.Forms.Button btnRetriveDomains;
 
     }
 }

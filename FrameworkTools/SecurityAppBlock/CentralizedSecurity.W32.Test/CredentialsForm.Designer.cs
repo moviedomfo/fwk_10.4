@@ -188,7 +188,7 @@ namespace SecurityAppBlock.Use
         private System.Windows.Forms.TextBox txtCnnString;
         private System.Windows.Forms.Button btnAutenticate2;
         private System.Windows.Forms.Button btnAutenticate1;
+   		private System.Windows.Forms.Button btnGetUserInfo;
         private IContainer components;
-        private System.Windows.Forms.Button btnGetUserInfo;
     }
 }

@@ -17,13 +17,31 @@ namespace Fwk.Security.AD.TestLogin
     public partial class frmDinamic : Form
     {
         LDAPHelper _ADHelper;
+        ADWrapper _ADWrapper;
         //IDirectoryService _ADHelperSecure;
-        List<DomainUrlInfo> urls;
+        List<DomainUrlInfo> urls = new List<DomainUrlInfo> ();
 
         public frmDinamic()
         {
             InitializeComponent();
-            init();
+            //DomainUrlInfo d = new DomainUrlInfo();
+            //d.DomainDN = "testaa";
+            //d.DomainName = "testaa";
+            //d.LDAPPath = "LDAP://172.22.14.40/DC=testaa,DC=ar   ";
+            //d.Usr = "Conexion";
+            //d.Pwd = "UhtUDxCRO6fILkoToU9T6g==";
+            //urls.Add(d);
+            
+//            var str = Newtonsoft.Json.JsonConvert.SerializeObject(urls);
+              var str =Fwk.HelperFunctions.FileFunctions.OpenTextFile("domainsurl.json");
+
+
+              urls = Newtonsoft.Json.JsonConvert.DeserializeObject<List<DomainUrlInfo>>(str);
+              domainUrlInfoBindingSource.DataSource = urls;
+              cmbDomains.SelectedIndex = 0;
+              _DomainUrlInfo = (DomainUrlInfo)cmbDomains.SelectedItem;
+              lblURL.Text = _DomainUrlInfo.LDAPPath;
+              
         }
 
         private void btnAutenticate_Click(object sender, EventArgs e)
@@ -55,17 +73,14 @@ namespace Fwk.Security.AD.TestLogin
 
         bool SetAD(Boolean pSecure)
         {
-            lblURL.Text = string.Empty;
-
-            DomainUrlInfo wDomainUrlInfo = (DomainUrlInfo)cmbDomains.SelectedItem;//urls.Find(p => p.DomainName.Equals(txtDomain.Text,StringComparison.CurrentCultureIgnoreCase));
-
-            if (wDomainUrlInfo == null)
+            if (_DomainUrlInfo == null)
             {
                 lblCheckResult.Text = "Nombre de dominio incorrecto";
                 return false;
             }
             //_ADHelper = new ADHelper(wDomainUrlInfo.LDAPPath, wDomainUrlInfo.Usr, wDomainUrlInfo.Pwd);
-            _ADHelper = new LDAPHelper(wDomainUrlInfo.DomainName, "testActiveDirectory", pSecure);
+            _ADHelper = new LDAPHelper(_DomainUrlInfo);
+            //_ADHelper = new LDAPHelper(wDomainUrlInfo.DomainName, "testActiveDirectory", pSecure);
 
             return true;
         }
@@ -75,7 +90,8 @@ namespace Fwk.Security.AD.TestLogin
 
             try
             {
-                urls = ADWrapper.DomainsUrl_GetList("testActiveDirectory");//@"Data Source=SANTANA\SQLEXPRESS;Initial Catalog=Logs;Integrated Security=True");
+                urls = ADWrapper.DomainsUrl_GetList("ActiveDirectory");//@"Data Source=SANTANA\SQLEXPRESS;Initial Catalog=Logs;Integrated Security=True");
+
                 domainUrlInfoBindingSource.DataSource = urls;
                 cmbDomains.SelectedIndex = 1;
 
@@ -90,18 +106,22 @@ namespace Fwk.Security.AD.TestLogin
 
 
         }
-
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        private void btnRetriveDomains_Click(object sender, EventArgs e)
         {
-            DomainUrlInfo wDomainUrlInfo = (DomainUrlInfo)cmbDomains.SelectedItem;//urls.Find(p => p.DomainName.Equals(txtDomain.Text,StringComparison.CurrentCultureIgnoreCase));
-            if (wDomainUrlInfo == null) return;
-            lblURL.Text = wDomainUrlInfo.LDAPPath;
+            init();
+        }
+        DomainUrlInfo _DomainUrlInfo;
+        private void cmbDomains_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            _DomainUrlInfo = (DomainUrlInfo)cmbDomains.SelectedItem;//urls.Find(p => p.DomainName.Equals(txtDomain.Text,StringComparison.CurrentCultureIgnoreCase));
+            if (_DomainUrlInfo == null) return;
+            lblURL.Text = _DomainUrlInfo.LDAPPath;
 
         }
-
+       
         private void frmDinamic_Load(object sender, EventArgs e)
         {
-
+           // lblURL.Text = _DomainUrlInfo.LDAPPath;// ((DomainUrlInfo)cmbDomains.SelectedItem).LDAPPath;
         }
 
         private void ResetPwd_Click(object sender, EventArgs e)
@@ -140,6 +160,10 @@ namespace Fwk.Security.AD.TestLogin
             wStore.Close();
 
         }
+
+       
+
+     
 
 
     }

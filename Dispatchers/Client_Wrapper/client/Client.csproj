@@ -88,12 +88,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Crypt.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Crypt.Designer.cs">
-      <DependentUpon>Crypt.cs</DependentUpon>
-    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -107,19 +101,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
-    <Compile Include="settings.cs" />
-    <Compile Include="UsoHelpersFunctions.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="UsoHelpersFunctions.Designer.cs">
-      <DependentUpon>UsoHelpersFunctions.cs</DependentUpon>
-    </Compile>
     <Compile Include="WCFWrapper_01.cs" />
     <Compile Include="WCFWrapper_02.cs" />
     <Compile Include="wrap_provider.cs" />
-    <EmbeddedResource Include="Crypt.resx">
-      <DependentUpon>Crypt.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
@@ -133,9 +117,6 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="UsoHelpersFunctions.resx">
-      <DependentUpon>UsoHelpersFunctions.cs</DependentUpon>
-    </EmbeddedResource>
     <None Include="app.config">
       <SubType>Designer</SubType>
     </None>

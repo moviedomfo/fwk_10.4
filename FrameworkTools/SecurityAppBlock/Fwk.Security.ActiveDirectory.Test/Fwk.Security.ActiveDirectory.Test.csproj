@@ -110,6 +110,12 @@
     <Compile Include="DomainUsers.Designer.cs">
       <DependentUpon>DomainUsers.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmResetPassword.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmResetPassword.Designer.cs">
+      <DependentUpon>frmResetPassword.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmTest.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -171,6 +177,9 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="domainsurl.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="Resources\sitebuild_icon.gif" />
   </ItemGroup>
   <ItemGroup>
@@ -183,6 +192,9 @@
   <ItemGroup>
     <EmbeddedResource Include="DomainUsers.resx">
       <DependentUpon>DomainUsers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmResetPassword.resx">
+      <DependentUpon>frmResetPassword.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmTest.resx">
       <DependentUpon>frmTest.cs</DependentUpon>

@@ -167,7 +167,8 @@ namespace Fwk.CentralizedSecurity.Service
         {
 
 
-            List<DomainUrlInfo> auxlist = ADWrapper.DomainsUrl_GetList2(System.Configuration.ConfigurationManager.ConnectionStrings[ActiveDirectoryService.CnnStringName].ConnectionString);
+            //List<DomainUrlInfo> auxlist = ADWrapper.DomainsUrl_GetList2(System.Configuration.ConfigurationManager.ConnectionStrings[ActiveDirectoryService.CnnStringName].ConnectionString);
+            List<DomainUrlInfo> auxlist = ADWrapper.DomainsUrl_Get_FromSp_all(ActiveDirectoryService.CnnStringName);
 
             if (auxlist.Count != 0)
             {

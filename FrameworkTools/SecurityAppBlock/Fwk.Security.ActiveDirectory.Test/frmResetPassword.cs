@@ -37,7 +37,7 @@ namespace Fwk.Security.ActiveDirectory.Test
 
           void User_Reset_Password(string userName, string newPassword, string domain)
         {
-            ADHelper ad = new ADHelper(domain, "domainurl", _ImpersonateLogin);
+            ADWrapper ad = new ADWrapper(domain,  _ImpersonateLogin);
 
             ad.User_ResetPwd(userName, newPassword, true);
 

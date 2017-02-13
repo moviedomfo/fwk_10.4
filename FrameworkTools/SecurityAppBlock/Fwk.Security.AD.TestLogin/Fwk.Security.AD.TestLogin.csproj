@@ -106,6 +106,9 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
     <None Include="App.config" />
+    <None Include="domainsurl.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="Properties\DataSources\Fwk.Security.ActiveDirectory.DomainUrlInfo.datasource" />
     <EmbeddedResource Include="frmDinamic.resx">
       <DependentUpon>frmDinamic.cs</DependentUpon>

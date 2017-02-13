@@ -117,14 +117,14 @@ namespace Client
         {
             
         }
-       
+        StringBuilder str = new StringBuilder();
 
 
 
         private void btnRetrivePatientsReq_Click(object sender, EventArgs e)
         {
             Int32 iter =0;
-            StringBuilder str = new StringBuilder();
+
             if (Int32.TryParse(txtIteraciones.Text, out iter))
             {
                 RetrivePatientsReq req = CreateReq();
@@ -153,12 +153,6 @@ namespace Client
             req.BusinessData.Id = 33;
             req.ContextInformation.UserId = "hylux";
             req.ContextInformation.AppId = "ddsadsa";
-
-
-
-           
-
-
             return req;
         }
         void FillProviders()
