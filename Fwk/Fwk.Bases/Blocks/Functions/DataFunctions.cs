@@ -3,7 +3,7 @@ using System.Data;
 using System.Xml;
 using System.IO;
 
-namespace Fwk.HelperFunctions
+namespace Fwk.HelperFunctions 
 {
     /// <summary>
     /// Funciones de datos.
