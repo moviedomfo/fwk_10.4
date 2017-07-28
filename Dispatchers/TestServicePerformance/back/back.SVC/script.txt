@@ -1,3 +1,0 @@
-﻿create procedure [dbo].[SalesOrderDetail_s]
-as
-select * from Sales.SalesOrderDetail

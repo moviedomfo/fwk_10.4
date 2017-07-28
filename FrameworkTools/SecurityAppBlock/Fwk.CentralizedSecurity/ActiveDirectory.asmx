@@ -1,1 +1,0 @@
-﻿<%@ WebService Language="C#" CodeBehind="ActiveDirectory.asmx.cs" Class="Fwk.CentralizedSecurity.ActiveDirectory" %>
