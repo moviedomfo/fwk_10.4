@@ -238,7 +238,7 @@ namespace Fwk.BusinessFacades
         /// <returns></returns>
         TechnicalException get_TechnicalException_error_loading_req(ServiceConfiguration serviceConfiguration, Exception ex = null)
         {
-            TechnicalException te = new TechnicalException(string.Concat("El despachador de servicio no pudo continuar debido\r\na que no logro construir el requets del servicio: ",
+            TechnicalException te = new TechnicalException(string.Concat("El despachador de servicio no pudo continuar debido\r\na que no logro construir el requet del servicio: ",
                             serviceConfiguration.Name, "\r\nVerifique que se encuentre los componentes necesarios para su ejecucion esten en el servidor de aplicación. "), ex);
 
             Fwk.Exceptions.ExceptionHelper.SetTechnicalException<SimpleFacade>(te);
@@ -249,7 +249,7 @@ namespace Fwk.BusinessFacades
 
             te.ErrorId = "7003";
             //Audito ensegundo plano
-            Action actionAudit = () => { FacadeHelper.DoAuditError("", te.Message, ""); };
+            Action actionAudit = () => { FacadeHelper.DoAuditError("", te.Message, "",true); };
             Task.Factory.StartNew(actionAudit);
             return te;
         }
@@ -266,7 +266,7 @@ namespace Fwk.BusinessFacades
             te.ErrorId = "7005";
 
             //Audito ensegundo plano
-            Action actionAudit = () => { FacadeHelper.DoAuditError("", te.Message, ""); };
+            Action actionAudit = () => { FacadeHelper.DoAuditError("", te.Message, "",true); };
             Task.Factory.StartNew(actionAudit);
 
             return te;
