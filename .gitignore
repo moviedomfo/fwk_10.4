@@ -200,3 +200,5 @@ Libraries/Framework/Fwk.Bases.FrontEnd.dll.config
 Fwk/Fwk.Bases/Blocks/Fwk.BusinessFacades/FacadeHelper.cs.bak
 Libraries/Framework/Fwk.Security.dll
 Fwk/Fwk.Bases.Connector/WCF/WCFWrapper_NetTcpBinding.cs.bak
+Libraries/Framework/Fwk.Bases.Connector.xml
+Libraries/Framework/Fwk.Security.Service.Test.dll
