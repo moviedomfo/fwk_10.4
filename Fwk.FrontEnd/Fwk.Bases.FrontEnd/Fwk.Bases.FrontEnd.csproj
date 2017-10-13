@@ -119,21 +119,13 @@
       <DependentUpon>FormConnector.cs</DependentUpon>
     </Compile>
     <Compile Include="Controls\FwkGrid\DataGridViewSorted\DataGridComparer.cs" />
-    <Compile Include="Controls\FwkGrid\DataGridViewSorted\DataPickerDataGridViewCell.cs">
-      <SubType>Component</SubType>
-    </Compile>
+    <Compile Include="Controls\FwkGrid\DataGridViewSorted\DataPickerDataGridViewCell.cs" />
     <Compile Include="Controls\FwkGrid\DataGridViewSorted\SortedDataGridView.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Controls\FwkGrid\FwkColumns\FwkGridViewCalendarColumn.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Controls\FwkGrid\FwkColumns\FwkGridViewEntityColumn.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Controls\FwkGrid\FwkColumns\FwkMaskedTextColumn.cs">
-      <SubType>Component</SubType>
-    </Compile>
+    <Compile Include="Controls\FwkGrid\FwkColumns\FwkGridViewCalendarColumn.cs" />
+    <Compile Include="Controls\FwkGrid\FwkColumns\FwkGridViewEntityColumn.cs" />
+    <Compile Include="Controls\FwkGrid\FwkColumns\FwkMaskedTextColumn.cs" />
     <Compile Include="Controls\FwkGrid\FwkGenericDataGridView.cs">
       <SubType>Component</SubType>
     </Compile>

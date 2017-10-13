@@ -9,7 +9,7 @@
 		<SolutionPathDispatcher>$(MSBuildProjectDirectory)\Dispatchers\WcfDispatcher\WcfDispatcher.sln</SolutionPathDispatcher> 
       
       <!-- Ruta de raiz  -->
-		<OutputPath_root>$(Solution)..\..\fwk_releases\FWK-10.0\</OutputPath_root> 
+		<OutputPath_root>$(Solution)..\..\fwk_releases\FWK-10.4\</OutputPath_root> 
 		<OutputPath_root_fwk>$(OutputPath_root)\libs\</OutputPath_root_fwk> 
 		
 		
@@ -18,17 +18,18 @@
 		<OutputPath_x64_debug>$(OutputPath_root_fwk)Fwk_10_x64_debug</OutputPath_x64_debug>
 		<OutputPath_x64_release>$(OutputPath_root_fwk)Fwk_10_x64_release</OutputPath_x64_release>
 		
-		<OutputPath_x64_release_wcfdispatcher>$(OutputPath_root)Dispatchers\WcfDispatcher_service\</OutputPath_x64_release_wcfdispatcher>
+		<OutputPath_x64_release_wcfdispatcher>$(OutputPath_root_fwk)Dispatchers\wcfdispatcher</OutputPath_x64_release_wcfdispatcher>
 		
 		
 	</PropertyGroup>  
 	<Target Name="All"  DependsOnTargets="Compile_AnyCPU_debug;Compile_AnyCPU_release;Compile_x64_debug;Compile_x64_release;CleanRecursive"></Target>
 	
-	
-	<!--<Target Name="All"  DependsOnTargets="dispatcher_wcf"></Target>-->  
+	<!--
+	<Target Name="All"  DependsOnTargets="Clean;dispatcher_wcf;CleanRecursive"></Target>  --> 
 	<Target Name="Clean">
 			<Message Text ="cleaning ..." />
 			<RemoveDir Directories="$(OutputPath_root_fwk)"/>
+			<RemoveDir Directories="$(OutputPath_x64_release_wcfdispatcher)"/>
 			<MakeDir Directories="$(OutputPath_root_fwk)"/>
 		  </Target>
 		  
