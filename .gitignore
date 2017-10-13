@@ -204,3 +204,12 @@ Libraries/Framework/Fwk.Bases.Connector.xml
 Libraries/Framework/Fwk.Security.Service.Test.dll
 Dispatchers/WcfDispatcher/WcfDispatcher/WcfDispatcher.Service.csproj.user
 Fwk/.vs/Fwk/v14/.suo
+Dispatchers/WebAPIDispatcher/WebAPIDispatcherWebAPI/App_Start/WebApiConfig.cs.bak
+Dispatchers/WcfDispatcher/WcfDispatcher_Host/WcfDispatcher_Host.csproj.bak
+Dispatchers/WcfDispatcher/WcfDispatcher/WcfDispatcher.Service.csproj.bak
+Dispatchers/WcfDispatcher/WcfDispatcher/Properties/AssemblyInfo.cs.bak
+Dispatchers/WcfDispatcher/WcfDispatcher/FwkService.cs.bak
+Dispatchers/WcfDispatcher/WcfDispatcher_Host/Metasvc.xml.bak
+Dispatchers/WcfDispatcher/WcfDispatcher_Host/App.config.bak
+Dispatchers/WcfDispatcher/WcfDispatcherSvc/WcfDispatcherSvc.csproj.bak
+Dispatchers/Metasvc.xml.bak
