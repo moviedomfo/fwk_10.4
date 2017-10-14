@@ -24,21 +24,14 @@
   </FwkServiceMetadata>
   <FwkWrapper defaultProviderName="wrapper_remoting">
     <Providers>
-       
-                 <add name="health_local_wcf_WSHttpBinding" type="Fwk.Bases.Connector.WCFRrapper_WsHttpBinding,Fwk.Bases.Connector"
-           appId="pelsoft" serviceMetadataProviderName="health" sourceinfo="http://moviedo-001-site2.itempurl.com/service.svc"/>
-        <add name="health_wcf_WSHttpBinding" type="Fwk.Bases.Connector.WCFRrapper_WsHttpBinding,Fwk.Bases.Connector"
-           appId="pelsoft" serviceMetadataProviderName="health" sourceinfo="http://ws2008/health/service.svc"/>
-      
-      <add name="generic_wcf_IIS_WSHttpBinding" type="Fwk.Bases.Connector.WCFRrapper_WsHttpBinding,Fwk.Bases.Connector"
-           appId="pelsoft" serviceMetadataProviderName="health" sourceinfo="http://ws2008/FWK_WCF_Dispatcher/Service.svc"/>
-      <add name="ssl_wcf_IIS_WSHttpBinding" type="Fwk.Bases.Connector.WCFRrapper_WsHttpBinding,Fwk.Bases.Connector"
-         appId="pelsoft" serviceMetadataProviderName="health" sourceinfo=" https://ws2008:443/health/service.svc"/>
-     
-
-      <add name="wrapper_remoting" type="Fwk.Bases.Connector.RemotingWrapper,Fwk.Bases.Connector" appId="Epiron3ConfiguradorMovistarNegociosRemoting"
+        <add name="wrapper_remoting" type="Fwk.Bases.Connector.RemotingWrapper,Fwk.Bases.Connector" appId="Epiron3ConfiguradorMovistarNegociosRemoting" 
              serviceMetadataProviderName="xml" sourceinfo="RemotingConfigFile.config" />
-    
+           
+        <add name="health_wcf_WSHttpBinding" type="Fwk.Bases.Connector.WCFRrapper_WsHttpBinding,Fwk.Bases.Connector" 
+           appId="pelsoft" serviceMetadataProviderName="health" sourceinfo="http://localhost:17023/Service.svc"/>
+      
+      <add name="health_wcf_IIS_WSHttpBinding" type="Fwk.Bases.Connector.WCFRrapper_WsHttpBinding,Fwk.Bases.Connector" 
+           appId="pelsoft" serviceMetadataProviderName="health" sourceinfo="http://ws2008/FWK_WCF_Dispatcher/Service.svc"/>
       <add name="health_ws" type="Fwk.Bases.Connector.WebServiceWrapper,Fwk.Bases.Connector" appId="pelsoft" serviceMetadataProviderName="health" sourceinfo="http://localhost:38091/SingleService.asmx"/>
       <add name="health_wcf" type="Fwk.Bases.Connector.WCFWrapper_NetTcpBinding,Fwk.Bases.Connector" appId="pelsoft" serviceMetadataProviderName="health" sourceinfo="net.tcp://localhost:8001/FwkService"/>
     <add name="health_wcf_IIS_BasicHttpBinding" type="Fwk.Bases.Connector.WCFWrapper_BasicHttpBinding,Fwk.Bases.Connector" appId="pelsoft" serviceMetadataProviderName="health" sourceinfo="http://ws2008/FWK_WCF_Dispatcher/Service.svc"/>
@@ -67,22 +60,8 @@
     </assemblyBinding>
   </runtime>
   <system.serviceModel>
-    <bindings>
-      <wsHttpBinding>
-        <binding name="WSHttpBinding_IFwkService" maxReceivedMessageSize="210000000">
-          <security mode="None" />
-        </binding>
-        <binding name="web">
-          <security mode="None" />
-        </binding>
-      </wsHttpBinding>
-    </bindings>
-    <client>
-      <endpoint address="http://moviedo-001-site2.itempurl.com/service.svc"
-        binding="wsHttpBinding" bindingConfiguration="WSHttpBinding_IFwkService"
-        contract="ServiceReference1.IFwkService" name="WSHttpBinding_IFwkService" />
-     
-    </client>
+    <bindings/>
+    <client/>
   </system.serviceModel>
     <startup> 
         <supportedRuntime version="v4.0" sku=".NETFramework,Version=v4.5" />

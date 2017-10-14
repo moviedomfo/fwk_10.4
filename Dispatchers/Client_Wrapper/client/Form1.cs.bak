@@ -14,11 +14,7 @@ using Fwk.HelperFunctions;
 using Fwk.Bases;
 using Fwk.Bases.Connector;
 using Fwk.ConfigSection;
-using Fwk.Exceptions;
-using System.Threading.Tasks;
-using System.IO;
-using System.Runtime.Serialization.Formatters.Binary;
-using SomeCompany.BE;
+
 
 namespace Client
 {
@@ -121,20 +117,14 @@ namespace Client
         {
             
         }
-       
+        StringBuilder str = new StringBuilder();
 
 
 
         private void btnRetrivePatientsReq_Click(object sender, EventArgs e)
         {
-            ControlPermissionBE c = new ControlPermissionBE();
-
-            c.ControlName = "dassdas";
-            c.ControlName = "dassdas";
-            c.GetXml();
-
             Int32 iter =0;
-            StringBuilder str = new StringBuilder();
+
             if (Int32.TryParse(txtIteraciones.Text, out iter))
             {
                 RetrivePatientsReq req = CreateReq();
@@ -145,7 +135,7 @@ namespace Client
                     RetrivePatientsRes res = req.ExecuteService<RetrivePatientsReq, RetrivePatientsRes>(comboProviders.Text,req);
 
                     if (res.Error != null)
-                        str.AppendLine(String.Concat(i, " ", ExceptionHelper.GetAllMessageException(ExceptionHelper.ProcessException(res.Error))));
+                        str.AppendLine(String.Concat(i, " ", Fwk.Exceptions.ExceptionHelper.ProcessException(res.Error).Message));
 
                     str.AppendLine(String.Concat(i, " ", res.BusinessData.GetXml()));
                     str.AppendLine(String.Concat(i, " cliente: ", res.ContextInformation.ServerName));
@@ -180,7 +170,6 @@ namespace Client
         private void comboProviders_SelectedIndexChanged(object sender, EventArgs e)
         {
             wrap_provider w = comboProviders.SelectedItem as wrap_provider;
-            if (w == null) return;
             StringBuilder str = new StringBuilder("Wrapper name: " + w.Name);
             str.AppendLine();
             str.AppendLine("SourceInfo: " + w.SourceInfo);
@@ -236,83 +225,8 @@ namespace Client
             return req;
         }
 
-        int nroLlamadaCount = 0;
-        private void button5_Click(object sender, EventArgs e)
-        {
-            nroLlamadaCount = nroLlamadaCount + 1;
-
-            string provider = comboProviders.Text;
-
-            Task.Run(() => create_RetrivePatientsReqAsync(provider, nroLlamadaCount.ToString())).ContinueWith((res) =>
-            {//Se hace esto debido a que no se puede modificar desde un subhilo a propiedades de ojetos UI
-                this.BeginInvoke(new Action(() =>
-                {
-                    StringBuilder str = new StringBuilder("Hora de llamada :  " + res.Result.ContextInformation.HostTime.ToLongTimeString());
-                    str.AppendLine();
-                    //Si no ocurre error
-                    if (!res.IsFaulted)
-                    {
-                        
-                        if (res.Result.Error != null)
-                            str.AppendLine(ExceptionHelper.GetAllMessageException(ExceptionHelper.ProcessException(res.Result.Error)));
-
-                        str.AppendLine(res.Result.BusinessData.GetXml());
-                        str.AppendLine(String.Concat(" cliente: ", res.Result.ContextInformation.ServerName));
-                    }
-                    else
-                    {
-                        str.Append ( ExceptionHelper.GetAllMessageException(res.Exception));
-
-
-                    }
-
-                    txtResponse.Text = str.ToString();
-                }));
-            });
-        }
-
-
-         
-        Task<RetrivePatientsRes> create_RetrivePatientsReqAsync(string provider, String nroLlamada)
-        {
-            return Task<RetrivePatientsRes>.Factory.StartNew(() => Do_RetrivePatient(provider,nroLlamada));
-            
        
-        }
+       
 
-        RetrivePatientsRes Do_RetrivePatient(String provider,String nroLlamada)
-        {
-
-            RetrivePatientsReq req = CreateReq();
-
-            RetrivePatientsRes res = req.ExecuteService<RetrivePatientsReq, RetrivePatientsRes>(provider, req);
-          
-            return res;
-
-        }
-
-        private void btnCheckServiceAvailability_Click(object sender, EventArgs e)
-        {
-            wrap_provider w = comboProviders.SelectedItem as wrap_provider;
-            try
-            {
-                //using (Stream s = new MemoryStream())
-                //{
-                //    BinaryFormatter formatter = new BinaryFormatter();
-                //    formatter.Serialize(s, w);
-                //    long x = s.Length;
-                //}
-
-                
-                var res = WrapperFactory.GetWrapper(w.Name).CheckServiceAvailability(true, true, true);
-
-                
-            }
-            catch(Exception ex)
-            {
-                txtResponse.Text = ex.Message;
-            }
-
-        }
     }
 }
