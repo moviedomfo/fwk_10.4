@@ -82,9 +82,9 @@ namespace Fwk.Security.ActiveDirectory.Test
             lblResult.Text = string.Empty;
             //try
             //{
-            //    _ADHelper = new ADHelper(txtDomain.Text);
-            //    lstDomains.DataSource = _ADHelper.Domain_GetList1();
-            //    label4.Text = _ADHelper.LDAPPath;
+            //    _ADWrapper = new ADWrapper(txtDomain.Text);
+            //    lstDomains.DataSource = _ADWrapper.Domain_GetList1();
+            //    label4.Text = _ADWrapper.LDAPPath;
             //}
             //catch (Exception ex)
             //{

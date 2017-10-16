@@ -1,6 +1,8 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2012
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Test", "Test", "{59DEF41B-8EA5-48C3-A3A9-056839ED8F5D}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Web", "Web", "{D72E92CB-E82D-4227-B8EB-684872547CA3}"
@@ -40,9 +42,6 @@ Global
 		Svn-Managed = True
 		Manager = AnkhSVN - Subversion Support for Visual Studio
 	EndGlobalSection
-	GlobalSection(TestCaseManagementSettings) = postSolution
-		CategoryFile = Fwk.Security.vsmdi
-	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Debug|Mixed Platforms = Debug|Mixed Platforms
@@ -62,7 +61,6 @@ Global
 		{9155394C-7D3C-4CD0-AA3A-ACD555D1790A}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{9155394C-7D3C-4CD0-AA3A-ACD555D1790A}.Release|x86.ActiveCfg = Release|Any CPU
 		{F34E7964-2942-4129-9236-4F0B1A4F953E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{F34E7964-2942-4129-9236-4F0B1A4F953E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F34E7964-2942-4129-9236-4F0B1A4F953E}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
 		{F34E7964-2942-4129-9236-4F0B1A4F953E}.Debug|x86.ActiveCfg = Debug|Any CPU
 		{F34E7964-2942-4129-9236-4F0B1A4F953E}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -111,7 +109,9 @@ Global
 		{97C154B2-B552-4D02-A2C1-2AD5A499D8F0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{97C154B2-B552-4D02-A2C1-2AD5A499D8F0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{97C154B2-B552-4D02-A2C1-2AD5A499D8F0}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{97C154B2-B552-4D02-A2C1-2AD5A499D8F0}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
 		{97C154B2-B552-4D02-A2C1-2AD5A499D8F0}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{97C154B2-B552-4D02-A2C1-2AD5A499D8F0}.Debug|x86.Build.0 = Debug|Any CPU
 		{97C154B2-B552-4D02-A2C1-2AD5A499D8F0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{97C154B2-B552-4D02-A2C1-2AD5A499D8F0}.Release|Any CPU.Build.0 = Release|Any CPU
 		{97C154B2-B552-4D02-A2C1-2AD5A499D8F0}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
@@ -168,5 +168,8 @@ Global
 		{6483389E-4CBA-4034-8F9E-2200232E98E5} = {D72E92CB-E82D-4227-B8EB-684872547CA3}
 		{9F45B384-90AF-411A-BD0C-D17D8E6E48B3} = {D72E92CB-E82D-4227-B8EB-684872547CA3}
 		{E9E83CEA-C479-4AF5-8EBE-96F4F9BF9943} = {D72E92CB-E82D-4227-B8EB-684872547CA3}
+	EndGlobalSection
+	GlobalSection(TestCaseManagementSettings) = postSolution
+		CategoryFile = Fwk.Security.vsmdi
 	EndGlobalSection
 EndGlobal

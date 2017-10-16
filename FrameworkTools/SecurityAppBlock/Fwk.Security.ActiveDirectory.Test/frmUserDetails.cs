@@ -20,7 +20,7 @@ namespace Fwk.Security.ActiveDirectory.Test
 
         private void frmUserDetails_Load(object sender, EventArgs e)
         {
-           List<ADGroup> list = StaticAD.ADHelper.User_SearchGroupList(user.LoginName);
+           List<ADGroup> list = StaticAD.ADWrapper.User_SearchGroupList(user.LoginName);
            bindingSourceADUser.DataSource = user;
            domainGoups1.Populate(list);
         }

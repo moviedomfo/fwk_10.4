@@ -11,7 +11,7 @@ namespace Fwk.CheckLogging
 {
     public partial class _Default : System.Web.UI.Page
     {
-        LDAPHelper _ADHelper;
+        LDAPHelper _ADWrapper;
         protected void Page_Load(object sender, EventArgs e)
         {
 
@@ -26,7 +26,7 @@ namespace Fwk.CheckLogging
                 {
                     TechnicalException logError = null;
 
-                    lblResult.Text = _ADHelper.User_Logon(txtUsr.Text, txtpassword.Text, out logError).ToString();
+                    lblResult.Text = _ADWrapper.User_Logon(txtUsr.Text, txtpassword.Text, out logError).ToString();
 
                     if (logError != null)
                         lblError.Text = Fwk.Exceptions.ExceptionHelper.GetAllMessageException(logError);
@@ -47,7 +47,7 @@ namespace Fwk.CheckLogging
 
         bool SetAD(Boolean pSecure)
         {
-            _ADHelper = new LDAPHelper(txtDomain.Text, "testActiveDirectory", pSecure, false);
+            _ADWrapper = new LDAPHelper(txtDomain.Text, "testActiveDirectory", pSecure, false);
 
             return true;
         }

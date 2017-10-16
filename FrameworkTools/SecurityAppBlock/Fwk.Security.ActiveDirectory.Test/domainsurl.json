@@ -1,0 +1,35 @@
+﻿[
+  {
+    "DomainName": "testaa",
+    "LDAPPath": "LDAP://172.22.14.40/DC=testaa,DC=ar",
+    "Usr": "CUserSQL",
+    "Pwd": "Allus+123",
+    "Id": 10,
+    "SiteName": null,
+    "DomainDN": "testaa",
+    "EntityState": 0
+  },
+  
+  
+  
+   {
+    "DomainName": "allus-ar",
+    "LDAPPath": "LDAP://allus.ar/DC=allus,DC=ar",
+    "Usr": "reseteos",
+    "Pwd": "*R3s3t30s+",
+    "Id": 12,
+    "SiteName": null,
+    "DomainDN": "allus-ar",
+    "EntityState": 0
+  },
+  {
+    "DomainName": "alcomovistar",
+    "LDAPPath": "LDAP://alcomovistar.com.ar/DC=alcomovistar,DC=com,DC=ar",
+    "Usr": "reseteos",
+    "Pwd": "*R3s3t30s+",
+    "Id": 14,
+    "SiteName": null,
+    "DomainDN": "alcomovistar.com.ar",
+    "EntityState": 0
+  }
+]

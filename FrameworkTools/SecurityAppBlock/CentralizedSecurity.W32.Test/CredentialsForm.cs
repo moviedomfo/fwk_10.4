@@ -46,7 +46,7 @@ namespace SecurityAppBlock.Use
 
         void Init()
         {
-           // DatabaseFactory.SetDatabaseProviderFactory(new DatabaseProviderFactory());
+            //DatabaseFactory.SetDatabaseProviderFactory(new DatabaseProviderFactory());
             _Storage.Load();
             usernameTextBox.Text = _Storage.StorageObject.user;
             passwordTextBox.Text = _Storage.StorageObject.pwd;

@@ -14,11 +14,11 @@
       <FileName>ActiveDirectory\ADGroup.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Fwk.Security.ActiveDirectory.ADHelper">
+  <Class Name="Fwk.Security.ActiveDirectory.ADWrapper">
     <Position X="3.25" Y="1" Width="1.5" />
     <TypeIdentifier>
       <HashCode>ECAA4ABCIAIQMGAAECEgAQIQAAQAAAICMCAACgIMBIA=</HashCode>
-      <FileName>ActiveDirectory\ADHelper.cs</FileName>
+      <FileName>ActiveDirectory\ADWrapper.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Fwk.Security.ActiveDirectory.DomainsUrl">
@@ -45,14 +45,14 @@
     <Position X="1" Y="3" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAIEAAAAAAAAEACAFAQAgMAAAAABACAAAAAgAABAA=</HashCode>
-      <FileName>ActiveDirectory\ADHelper.cs</FileName>
+      <FileName>ActiveDirectory\ADWrapper.cs</FileName>
     </TypeIdentifier>
   </Enum>
   <Enum Name="Fwk.Security.ActiveDirectory.LoginResult">
     <Position X="0.75" Y="1" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAIAAAAAAAAAAAAAAAAAAAAAAAAACAAAABGAgACA=</HashCode>
-      <FileName>ActiveDirectory\ADHelper.cs</FileName>
+      <FileName>ActiveDirectory\ADWrapper.cs</FileName>
     </TypeIdentifier>
   </Enum>
   <Font Name="Tahoma" Size="8.25" />

@@ -17,7 +17,7 @@ namespace Fwk.Security.ActiveDirectory.Test
     public partial class DomainUsers : UserControl
     {
 
-        ADWrapper _ADHelper;
+        ADWrapper _ADWrapper;
         public event ObjectDomainChangeHandler ObjectDomainChangeEvent;
         public event ObjectDomainDoubleClickHandler ObjectDomainDoubleClickEvent;
         void OnObjectDomainChange()
@@ -45,23 +45,23 @@ namespace Fwk.Security.ActiveDirectory.Test
         
         public void Populate()
         {
-            if (StaticAD.ADHelper == null)
+            if (StaticAD.ADWrapper == null)
             {
                 throw new Exception("El dominio no fue inicializado. ");
             }
 
-            _DomainUsers = StaticAD.ADHelper.Users_SearchByGroupName("");
+            _DomainUsers = StaticAD.ADWrapper.Users_SearchByGroupName("");
 
            aDUserBindingSource.DataSource = _DomainUsers;
         }
         public void Populate(string groupName)
         {
-            if (StaticAD.ADHelper == null)
+            if (StaticAD.ADWrapper == null)
             {
                 throw new Exception("El dominio no fue inicializado. ");
             }
 
-            _DomainUsers = StaticAD.ADHelper.Users_SearchByGroupName(groupName); ;
+            _DomainUsers = StaticAD.ADWrapper.Users_SearchByGroupName(groupName); ;
             txDomainUserName.Text = groupName;
             aDUserBindingSource.DataSource = _DomainUsers;
         }
@@ -82,7 +82,7 @@ namespace Fwk.Security.ActiveDirectory.Test
             using (new WaitCursorHelper(this))
             {
 
-                aDUserBindingSource.DataSource  = StaticAD.ADHelper.Users_SearchByGroupName(txDomainUserName.Text);
+                aDUserBindingSource.DataSource  = StaticAD.ADWrapper.Users_SearchByGroupName(txDomainUserName.Text);
               //= ADUser.FilterByName(, _DomainUsers);
             }
             
