@@ -2,7 +2,10 @@ node_modules/
 packages/
 bin/
 obj/
+.suo
 *.pdb
+*.user
+*.bak
 Libraries/Framework/Fwk.Bases.Connector.dll.config
 Libraries/Framework/Fwk.Bases.XML
 Libraries/Framework/Fwk.Bases.dll.config
@@ -213,3 +216,4 @@ Dispatchers/WcfDispatcher/WcfDispatcher_Host/Metasvc.xml.bak
 Dispatchers/WcfDispatcher/WcfDispatcher_Host/App.config.bak
 Dispatchers/WcfDispatcher/WcfDispatcherSvc/WcfDispatcherSvc.csproj.bak
 Dispatchers/Metasvc.xml.bak
+FrameworkTools/SecurityAppBlock/Fwk.Security.ActiveDirectory.Test/frmTestLDAPconnections.Designer.cs.bak
