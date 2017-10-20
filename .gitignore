@@ -217,3 +217,9 @@ Dispatchers/WcfDispatcher/WcfDispatcher_Host/App.config.bak
 Dispatchers/WcfDispatcher/WcfDispatcherSvc/WcfDispatcherSvc.csproj.bak
 Dispatchers/Metasvc.xml.bak
 FrameworkTools/SecurityAppBlock/Fwk.Security.ActiveDirectory.Test/frmTestLDAPconnections.Designer.cs.bak
+Libraries/Framework/Fwk.Bases.Test.exe.config
+Libraries/Framework/Fwk.Bases.Test.exe
+Fwk/Fwk.v12.suo
+Libraries/Framework/Fwk.Security.Service.Test.dll.config
+Libraries/Framework/Fwk.DataBase.Test.exe.config
+Libraries/Framework/Fwk.DataBase.Test.exe
