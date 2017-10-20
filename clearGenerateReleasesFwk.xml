@@ -1,0 +1,44 @@
+<Project  ToolsVersion="3.5" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">  
+    
+	
+    <PropertyGroup>
+		
+		<!-- Ruta hasta el fichero con la solución -->
+		<Solution>$(MSBuildProjectDirectory)\fwk\</Solution>
+		<SolutionPath>$(Solution)Fwk.sln</SolutionPath> 
+		<SolutionPathDispatcher>$(MSBuildProjectDirectory)\Dispatchers\WcfDispatcher\WcfDispatcher.sln</SolutionPathDispatcher> 
+      
+      <!-- Ruta de raiz  -->
+		<OutputPath_root>$(Solution)..\..\fwk_releases\FWK-10.4\</OutputPath_root> 
+		<OutputPath_root_fwk>$(OutputPath_root)libs\</OutputPath_root_fwk> 
+		
+		
+		<OutputPath_AnyCPU_debug>$(OutputPath_root_fwk)Fwk_10_AnyCPU_debug\</OutputPath_AnyCPU_debug>
+		<OutputPath_AnyCPU_release>$(OutputPath_root_fwk)Fwk_10_AnyCPU_release\</OutputPath_AnyCPU_release>
+		<OutputPath_x64_debug>$(OutputPath_root_fwk)Fwk_10_x64_debug\</OutputPath_x64_debug>
+		<OutputPath_x64_release>$(OutputPath_root_fwk)Fwk_10_x64_release\</OutputPath_x64_release>
+		
+		<OutputPath_x64_release_wcfdispatcher>$(OutputPath_root_fwk)Dispatchers\wcfdispatcher\</OutputPath_x64_release_wcfdispatcher>
+		
+		
+	</PropertyGroup>  
+	<Target Name="All"  DependsOnTargets="CleanRecursive"></Target>
+	
+	
+	
+	<Target Name="CleanRecursive" >
+	 <Exec Command = "del /s /q $(OutputPath_root_fwk)*.pdb" /> 
+	 <Exec Command = "del /s /q $(OutputPath_root_fwk)*.DebuggerVisualizers.*" />
+     <Exec Command = "del /s /q $(OutputPath_root_fwk)*.config" />
+	 <Exec Command = "del /s /q $(OutputPath_root_fwk)*.k" />
+     <Exec Command = "del /s /q $(OutputPath_root_fwk)*.exe" />
+	 <Exec Command = "del /s /q $(OutputPath_root_fwk)*.bat" />
+	  <Exec Command = "del /s /q $(OutputPath_root_fwk)ConfigurationManager*.xml" />
+	
+	 <Exec Command = "del /s /q $(OutputPath_root)XmlWhitAttributes.xml" />
+	 
+	 
+	
+	</Target>  
+	
+</Project> 
