@@ -223,3 +223,7 @@ Fwk/Fwk.v12.suo
 Libraries/Framework/Fwk.Security.Service.Test.dll.config
 Libraries/Framework/Fwk.DataBase.Test.exe.config
 Libraries/Framework/Fwk.DataBase.Test.exe
+Libraries/Framework/Fwk.DataBase.dll
+Libraries/Framework/Fwk.Bases.dll
+Libraries/Framework/Fwk.Bases.Connector.dll
+Libraries/Framework/Fwk.Bases.Connector.XmlSerializers.dll
