@@ -227,3 +227,4 @@ Libraries/Framework/Fwk.DataBase.dll
 Libraries/Framework/Fwk.Bases.dll
 Libraries/Framework/Fwk.Bases.Connector.dll
 Libraries/Framework/Fwk.Bases.Connector.XmlSerializers.dll
+Libraries/Framework/Fwk.Bases.FrontEnd.dll
