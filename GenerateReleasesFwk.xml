@@ -5,7 +5,7 @@
 		
 		<!-- Ruta hasta el fichero con la solución -->
 		<Solution>$(MSBuildProjectDirectory)\fwk\</Solution>
-		<SolutionPath>$(Solution)FwkReleases.sln</SolutionPath> 
+		<SolutionPath>$(Solution)FwkRelease.sln</SolutionPath> 
 		<SolutionPathDispatcher>$(MSBuildProjectDirectory)\Dispatchers\WcfDispatcher\WcfDispatcher.sln</SolutionPathDispatcher> 
       
       <!-- Ruta de raiz  -->
