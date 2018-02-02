@@ -9,7 +9,7 @@
 		<SolutionPathDispatcher>$(MSBuildProjectDirectory)\Dispatchers\WcfDispatcher\WcfDispatcher.sln</SolutionPathDispatcher> 
       
       <!-- Ruta de raiz  -->
-		<OutputPath_root>$(Solution)..\..\fwk_releases\FWK-10.4\</OutputPath_root> 
+		<OutputPath_root>$(Solution)..\..\..\fwk_releases\FWK-10.4\</OutputPath_root> 
 		<OutputPath_root_fwk>$(OutputPath_root)\libs\</OutputPath_root_fwk> 
 		
 		
@@ -22,7 +22,7 @@
 		
 		
 	</PropertyGroup>  
-	<Target Name="All"  DependsOnTargets="Compile_AnyCPU_debug;Compile_AnyCPU_release;Compile_x64_debug;Compile_x64_release;CleanRecursive"></Target>
+	<Target Name="All"  DependsOnTargets="Compile_AnyCPU_debug;Compile_AnyCPU_release;Compile_x64_release;CleanRecursive"></Target>
 	
 	<!--
 	<Target Name="All"  DependsOnTargets="Clean;dispatcher_wcf;CleanRecursive"></Target>  --> 
