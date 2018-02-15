@@ -48,7 +48,7 @@ namespace Fwk.ConfigData
     #endregion
 		
 		public FwkDatacontext() : 
-				base(global::Fwk.Bases.Properties.Settings.Default.Epiron3GMultilenguajeGestionConnectionString, mappingSource)
+				base(global::Fwk.Bases.Properties.Settings.Default.fwkdataConnectionString, mappingSource)
 		{
 			OnCreated();
 		}
