@@ -42,12 +42,6 @@ namespace Fwk.Security.Cryptography.Test
         }
 
 
-     
-
-
-
-
-
         
 
         private void btnGenHashedPassword_Click(object sender, EventArgs e)
