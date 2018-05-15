@@ -18,7 +18,14 @@ namespace Fwk.Security.Cryptography.Test
         {
             InitializeComponent();
 
+
         }
+        
+        private void frmPasswordSaltHashing_Load(object sender, EventArgs e)
+        {
+            txtGeneratedSalt.Text = GenerateSalt();
+        }
+       
 
         public static void GenerateSaltedHas(string password, out string hash, out string salt)
         {
@@ -30,14 +37,46 @@ namespace Fwk.Security.Cryptography.Test
              hash = Convert.ToBase64String(rfc2898DerivedBytes.GetBytes(256));
         }
 
+        public static string GenerateHas(string password, string storedSalt)
+        {
+             
+           
+
+            var salt_bytes = Convert.FromBase64String(storedSalt);
+
+            var provider = new RNGCryptoServiceProvider();
+            provider.GetNonZeroBytes(salt_bytes);
+
+            var rfc2898DerivedBytes = new Rfc2898DeriveBytes(password, salt_bytes, 10000);
+            string hash = Convert.ToBase64String(rfc2898DerivedBytes.GetBytes(256));
+
+            return hash;
+        }
+        public static string GetHash(string input)
+        {
+            HashAlgorithm hashAlgorithm = new SHA256CryptoServiceProvider();
+
+            byte[] byteValue = System.Text.Encoding.UTF8.GetBytes(input);
+
+            byte[] byteHash = hashAlgorithm.ComputeHash(byteValue);
+            
+            return Convert.ToBase64String(byteHash);
+        }
+
+        public static string  GenerateSalt()
+        {
+            var salt_byte = new byte[64];
+            var provider = new RNGCryptoServiceProvider();
+            provider.GetNonZeroBytes(salt_byte);
+           string  salt = Convert.ToBase64String(salt_byte);
+
+            return salt;
+        }
+
+
         public static bool Verify(string password, string storedHash, string storedSalt)
         {
-            var salt_bytes = Convert.FromBase64String(storedSalt);
-            var rfc2898DerivedBytes = new Rfc2898DeriveBytes(password, salt_bytes, 10000);
-            
-            var hash = Convert.ToBase64String(rfc2898DerivedBytes.GetBytes(256));
-
-
+            var hash = GetHash(password);
             return hash == storedHash;
         }
 
@@ -46,11 +85,11 @@ namespace Fwk.Security.Cryptography.Test
 
         private void btnGenHashedPassword_Click(object sender, EventArgs e)
         {
-            string hash, salt = ""; 
+           
+            txtPasswordHased.Text = GenerateHas(txtPassword.Text, txtGeneratedSalt.Text);
 
-           GenerateSaltedHas(txtPassword.Text, out hash, out salt);
-           txtPasswordHased.Text = hash;
-           txtGeneratedSalt.Text = salt;
+            txtPasswordHased.Text = GetHash(txtPassword.Text); 
+          // txtGeneratedSalt.Text = salt;
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -62,12 +101,7 @@ namespace Fwk.Security.Cryptography.Test
             else
             { MessageBox.Show("Password is NOT valid"); }
         }
-        static string str_salt = "";
-        private void frmPasswordSaltHashing_Load(object sender, EventArgs e)
-        {
-             str_salt = txtGeneratedSalt.Text;
-        }
-       
+   
         
 
         

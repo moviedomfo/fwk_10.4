@@ -72,21 +72,21 @@
             this.label2.TabIndex = 28;
             this.label2.Text = "Password";
             // 
-            // txtCifrado
+            // txtPasswordHased
             // 
             this.txtPasswordHased.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtPasswordHased.Location = new System.Drawing.Point(39, 143);
+            this.txtPasswordHased.Location = new System.Drawing.Point(39, 326);
             this.txtPasswordHased.Margin = new System.Windows.Forms.Padding(4);
             this.txtPasswordHased.Multiline = true;
-            this.txtPasswordHased.Name = "txtCifrado";
+            this.txtPasswordHased.Name = "txtPasswordHased";
             this.txtPasswordHased.Size = new System.Drawing.Size(777, 53);
             this.txtPasswordHased.TabIndex = 29;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(36, 122);
+            this.label1.Location = new System.Drawing.Point(36, 305);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(105, 17);
@@ -99,7 +99,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtGeneratedSalt.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.txtGeneratedSalt.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.FileSystemDirectories;
-            this.txtGeneratedSalt.Location = new System.Drawing.Point(39, 247);
+            this.txtGeneratedSalt.Location = new System.Drawing.Point(39, 172);
             this.txtGeneratedSalt.Margin = new System.Windows.Forms.Padding(4);
             this.txtGeneratedSalt.Multiline = true;
             this.txtGeneratedSalt.Name = "txtGeneratedSalt";
@@ -120,12 +120,12 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(36, 208);
+            this.label4.Location = new System.Drawing.Point(36, 133);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(106, 17);
+            this.label4.Size = new System.Drawing.Size(30, 17);
             this.label4.TabIndex = 35;
-            this.label4.Text = "Generated  salt";
+            this.label4.Text = "salt";
             // 
             // frmPasswordSaltHashing
             // 

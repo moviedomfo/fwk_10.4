@@ -38,7 +38,20 @@ namespace Remoting.Host
             }
             catch
             {}
-            Console.ReadLine();
+
+            Console.WriteLine("ESC para salir ...");
+            do
+            {
+                //while (!Console.KeyAvailable)
+                //{
+
+                   
+                //    Console.ReadLine();
+
+
+                //}
+            } while (Console.ReadKey(true).Key != ConsoleKey.Escape);
+
         }
         #region ---[Metodos Privados]---
         private static void Inicializar()
