@@ -38,8 +38,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fwk.Blocking.Test", "Test\F
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fwk.Cryptography.Test", "Test\Fwk.Criptography.Test\Fwk.Cryptography.Test.csproj", "{6DE96512-F2C4-4285-8E77-56C2C7999A7C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fwk.DataBase", "Fwk.DataBase\Fwk.DataBase.csproj", "{87C826E0-D87A-4C89-94ED-3B1044746A34}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fwk.Net.Ftp.Test", "Test\Fwk.Net.Ftp.Test\Fwk.Net.Ftp.Test.csproj", "{CF72C17F-60BC-425F-BAD4-9B3C5FBFA311}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fwk.UnitTest", "Test\Fwk.UnitTest\Fwk.UnitTest.csproj", "{3F12C172-FC60-414D-A2B4-8578FD9B3837}"
@@ -47,8 +45,6 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fwk.Security.Service.Test", "Test\Fwk.Security.Service.Test\Fwk.Security.Service.Test.csproj", "{2BAD51BD-D7D0-4B1D-8915-4726B5B67264}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fwk.Security.Cryptography.Test", "Test\Fwk.Security.Cryptography.Test\Fwk.Security.Cryptography.Test.csproj", "{6269E42D-FA98-4B8F-9EA1-7D5D7F1653AC}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fwk.Bases.FrontEnd", "..\Fwk.FrontEnd\Fwk.Bases.FrontEnd\Fwk.Bases.FrontEnd.csproj", "{E882C6F7-0C02-4014-B5E0-BEFD20756C07}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
