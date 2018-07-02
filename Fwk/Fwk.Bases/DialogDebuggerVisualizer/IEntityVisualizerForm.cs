@@ -11,7 +11,7 @@ using Fwk.HelperFunctions;
 namespace Fwk.Bases.Debug
 {
     /// <summary>
-    /// Formulario lanzado por <see cref="IEntityVisualizer"/> para las clases <see cref="IEntity"/>
+    /// Formulario lanzado por <see cref="IEntityVisualizerForm"/> para las clases <see cref="IEntity"/>
     /// </summary>
     /// <Author>Marcelo .F. Oviedo</Author>
     public partial class IEntityVisualizerForm : Form
