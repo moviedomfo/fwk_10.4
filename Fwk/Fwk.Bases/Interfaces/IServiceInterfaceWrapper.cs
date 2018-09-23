@@ -17,7 +17,10 @@ namespace Fwk.Bases
     /// <author>moviedo</author>
 	public interface IServiceWrapper
 	{
-       
+      
+
+   
+
         /// <summary>
         /// Proveedor del wrapper. Este valor debe coincidir con un proveedor de metadata en el dispatcher
         /// </summary>
@@ -41,6 +44,7 @@ namespace Fwk.Bases
         /// identificador de aplicacion
         /// </summary>
         string AppId { get; set; }
+
 		/// <summary>
 		/// Ejecuta un servicio de negocio.
 		/// </summary>
