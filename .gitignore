@@ -234,3 +234,6 @@ Dispatchers/RemotingDispatcher/.vs/RemotingDispatcher/v15/Server/sqlite3/db.lock
 Libraries/Framework/Fwk.Bases.pdb nul
 Libraries/Framework/Fwk.Bases.dll.config nul
 Libraries/Framework/Fwk.Bases.dll nul
+Libraries/Framework/Fwk.Bases.FrontEnd.dll nul
+Libraries/Framework/Fwk.Bases.Connector.xml nul
+Libraries/Framework/Fwk.Bases.Connector.dll nul
