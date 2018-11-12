@@ -32,6 +32,11 @@ namespace Fwk.Bases.Connector
         {
 
         }
+
+
+     
+
+
         /// <summary>
         /// Proveedor del wrapper. Este valor debe coincidir con un proveedor de metadata en el dispatcher
         /// </summary>
@@ -120,7 +125,6 @@ namespace Fwk.Bases.Connector
             wcfReq.serviceName = req.ServiceName;
             wcfReq.providerName = _ServiceMetadataProviderName;
             wcfReq.jsonRequets = Fwk.HelperFunctions.SerializationFunctions.SerializeObjectToJson<TRequest>(req);
-            //wcfReq.xmlRequets = Fwk.HelperFunctions.SerializationFunctions.SerializeToXml(req);
 
 
             var channelFactory = new ChannelFactory<IFwkService>(binding, address);
@@ -130,8 +134,36 @@ namespace Fwk.Bases.Connector
             {
 
                 client = channelFactory.CreateChannel();
+
                 wcfRes = client.ExecuteService(wcfReq);
                 ((ICommunicationObject)client).Close();
+            }
+            catch (System.ServiceModel.FaultException smEx)
+            {
+                if (client != null)
+                {
+                    ((ICommunicationObject)client).Abort();
+                }
+
+                response = (TResponse)Fwk.HelperFunctions.ReflectionFunctions.CreateInstance<TResponse>();
+
+                response.Error = new ServiceError();
+                response.Error.Class = "WCFRrapperBase";
+                response.Error.Type = "TechnicalException";
+                response.Error.Message = smEx.Message;
+               
+                var detail = ((FaultException<System.ServiceModel.ExceptionDetail>)smEx).Detail;
+                if (detail != null)
+                {
+                    if (detail.InnerException != null)
+                        response.Error.InnerMessageException = detail.InnerException.Message;
+                }
+                response.Error.StackTrace = Fwk.Exceptions.ExceptionHelper.GetAllMessageException(smEx);
+
+
+                response.InitializeHostContextInformation();
+
+                return response;
             }
             catch (Exception ex)
             {
@@ -144,6 +176,7 @@ namespace Fwk.Bases.Connector
 
                 response.Error = new ServiceError();
                 response.Error.Class = "WCFRrapperBase";
+                response.Error.Type = "TechnicalException";
                 response.Error.Message = Fwk.Exceptions.ExceptionHelper.GetAllMessageException(ex);
                 response.InitializeHostContextInformation();
 
@@ -390,7 +423,9 @@ namespace Fwk.Bases.Connector
         #endregion [ServiceConfiguration]
 
 
-
+        /// <summary>
+        /// 
+        /// </summary>
         public abstract void InitilaizeBinding();
 
 
@@ -412,36 +447,11 @@ namespace Fwk.Bases.Connector
                 throw Fwk.Exceptions.ExceptionHelper.ProcessException(res.Error);
 
             }
-            //RetriveDispatcherInfoRequest wcfReq = new RetriveDispatcherInfoRequest();
-            //RetriveDispatcherInfoResponse wcfRes = null;
-
-            //var channelFactory = new ChannelFactory<IFwkService>(binding, address);
-            //IFwkService client = null;
-            //try
-            //{
-            //    client = channelFactory.CreateChannel();
-
-            //    wcfRes = client.RetriveDispatcherInfo(wcfReq);
-            //    ((ICommunicationObject)client).Close();
-            //}
-            //catch (Exception ex)
-            //{
-            //    if (client != null)
-            //    {
-            //        ((ICommunicationObject)client).Abort();
-            //    }
-            //    throw ex;
-            //}
-
-
 
             return res.BusinessData;
         }
 
-
-
-
-
+    
     }
 }
 

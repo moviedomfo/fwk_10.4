@@ -355,6 +355,10 @@ namespace Fwk.Bases.Connector
         #region IServiceWrapper Members
 
 
+		/// <summary>
+        /// NotImplementedException
+        /// </summary>
+        /// <returns></returns>
         public DispatcherInfo RetriveDispatcherInfo()
         {
             throw new NotImplementedException();

@@ -52,7 +52,9 @@ namespace Fwk.ServiceManagement
                             wServiceConfiguration = GetServiceConfigurationFromRow(reader);
                         }
                     }
-
+                    if (wServiceConfiguration == null)
+                       throw new Fwk.Exceptions.TechnicalException(string.Concat("El servicio ", serviceName, " no se encuentra configurado."));
+                    
                 }
 
   

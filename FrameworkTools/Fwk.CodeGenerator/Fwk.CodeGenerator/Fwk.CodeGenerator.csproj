@@ -24,7 +24,7 @@
     <OldToolsVersion>3.5</OldToolsVersion>
     <UpgradeBackupLocation>
     </UpgradeBackupLocation>
-    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <IsWebBootstrapper>true</IsWebBootstrapper>
     <TargetFrameworkProfile />
   </PropertyGroup>
@@ -37,15 +37,17 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
-    <Optimize>true</Optimize>
+    <Optimize>false</Optimize>
     <OutputPath>bin\Release\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Fwk.Bases, Version=3.0.0.0, Culture=neutral, processorArchitecture=MSIL">
@@ -56,8 +58,9 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\Libraries\Framework\Fwk.Bases.FrontEnd.dll</HintPath>
     </Reference>
-    <Reference Include="Fwk.Controls.Win32">
+    <Reference Include="Fwk.Controls.Win32, Version=10.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\..\Libraries\Framework\Fwk.Controls.Win32.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
     </Reference>
     <Reference Include="Fwk.DataBase">
       <HintPath>..\..\..\Libraries\Framework\Fwk.DataBase.dll</HintPath>
@@ -118,6 +121,7 @@
     <Reference Include="System.Design" />
     <Reference Include="System.DirectoryServices" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
   </ItemGroup>
@@ -128,9 +132,7 @@
     <Compile Include="Bases\ConnectionForm.Designer.cs">
       <DependentUpon>ConnectionForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Bases\FrmBase.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="Bases\FrmBase.cs" />
     <Compile Include="Bases\FrmBase.Designer.cs">
       <DependentUpon>FrmBase.cs</DependentUpon>
     </Compile>
@@ -150,9 +152,7 @@
     </Compile>
     <Compile Include="DACGenController.cs" />
     <Compile Include="No_Used\DataEntityGenEngine.cs" />
-    <Compile Include="Forms\DACClasses\frm_DACGenerator.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="Forms\DACClasses\frm_DACGenerator.cs" />
     <Compile Include="Forms\DACClasses\frm_DACGenerator.Designer.cs">
       <DependentUpon>frm_DACGenerator.cs</DependentUpon>
     </Compile>
@@ -161,9 +161,7 @@
     <Compile Include="Forms\EntityClasses\frm_DataEntityGenerator.Designer.cs">
       <DependentUpon>frm_DataEntityGenerator.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\FrmTemplateSetting.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="Forms\FrmTemplateSetting.cs" />
     <Compile Include="Forms\FrmTemplateSetting.Designer.cs">
       <DependentUpon>FrmTemplateSetting.cs</DependentUpon>
     </Compile>
