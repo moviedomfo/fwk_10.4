@@ -371,6 +371,6 @@
   </Target>
   -->
   <PropertyGroup>
-    <PostBuildEvent>copy "$(TargetDir)$(TargetName).*"  "$(ProjectDir)..\..\Libraries\Framework\$(TargetName).* nul</PostBuildEvent>
+    <PostBuildEvent>copy "$(TargetDir)$(TargetName).*"  "$(ProjectDir)..\..\Libraries\Framework\$(TargetName).*"</PostBuildEvent>
   </PropertyGroup>
 </Project>
