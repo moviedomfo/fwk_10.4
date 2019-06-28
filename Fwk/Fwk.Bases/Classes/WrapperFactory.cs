@@ -223,6 +223,8 @@ namespace Fwk.Bases
             return wResponse;
         }
 
+        
+
         /// <summary>
         /// Ejecuta un servicio de negocio con el proveedor de wrapper por defecto
         /// Si se produce el error:

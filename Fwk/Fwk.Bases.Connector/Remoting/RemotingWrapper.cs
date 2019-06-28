@@ -387,9 +387,12 @@ namespace Fwk.Bases.Connector
             return wFwkRemoteObject.RetriveDispatcherInfo();
            
         }
+
+     
+
         #endregion [ServiceConfiguration]
 
-        
+
     }
 
 //    <configuration>
