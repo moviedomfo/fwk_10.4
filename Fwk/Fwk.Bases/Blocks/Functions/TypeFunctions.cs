@@ -4,12 +4,10 @@ using System.Drawing;
 using System.Drawing.Imaging;
 using System.IO;
 using System.Windows.Forms;
-using Microsoft.VisualBasic;
 using Fwk.Bases;
 using System.Collections.Generic;
 using System.Reflection;
 using System.Text;
-using System.Runtime.Serialization.Formatters.Binary;
 using System.Net;
 
 namespace Fwk.HelperFunctions

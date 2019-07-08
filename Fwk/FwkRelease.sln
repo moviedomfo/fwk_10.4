@@ -1,6 +1,6 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.28803.352
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Bases", "Bases", "{08CFB3CE-4AC8-4F86-BF35-65BB41EE7CD8}"
 EndProject
@@ -21,10 +21,6 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fwk.Bases.FrontEnd", "..\Fwk.FrontEnd\Fwk.Bases.FrontEnd\Fwk.Bases.FrontEnd.csproj", "{E882C6F7-0C02-4014-B5E0-BEFD20756C07}"
 EndProject
 Global
-	GlobalSection(SubversionScc) = preSolution
-		Svn-Managed = True
-		Manager = AnkhSVN - Subversion Support for Visual Studio
-	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|.NET = Debug|.NET
 		Debug|Any CPU = Debug|Any CPU
@@ -143,6 +139,13 @@ Global
 		{A1F08B2F-7D75-4BD4-8BD3-B98C582013EC} = {08CFB3CE-4AC8-4F86-BF35-65BB41EE7CD8}
 		{28E21FA6-5162-41B4-9FF0-6244DD01991A} = {9CB84A9F-53FA-4801-BC82-1DE70BFAA42F}
 		{87C826E0-D87A-4C89-94ED-3B1044746A34} = {08CFB3CE-4AC8-4F86-BF35-65BB41EE7CD8}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F13678C4-4AD9-40EA-9B04-7E671018393F}
+	EndGlobalSection
+	GlobalSection(SubversionScc) = preSolution
+		Svn-Managed = True
+		Manager = AnkhSVN - Subversion Support for Visual Studio
 	EndGlobalSection
 	GlobalSection(TestCaseManagementSettings) = postSolution
 		CategoryFile = Fwk1.vsmdi
